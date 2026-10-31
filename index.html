@@ -1,643 +1,780 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>СравниГаджет — Сравнение характеристик и цен</title>
-  <meta name="description" content="Удобное сравнение смартфонов, ноутбуков и умных часов. Наглядные таблицы, фильтры и актуальные цены в рублях.">
-  <style>
-    :root {
-      --bg: #f5f7fa;
-      --card: #ffffff;
-      --text: #111827;
-      --text-muted: #6b7280;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --success: #10b981;
-      --border: #e5e7eb;
-      --hover: #f8fafc;
-      --radius: 10px;
-      --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc Warden Game тАФ Procast Trainer</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0d0a0b; color:#e6d9c4;
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height:100vh; padding:24px;
+  }
+  .layout {
+    display:grid; grid-template-columns: 300px 1fr 300px;
+    gap:20px; max-width:1400px; margin:0 auto;
+  }
+  .panel {
+    background:#171112; border:1px solid #241a1c;
+    border-radius:10px; padding:24px;
+  }
+  h1 { text-align:center; font-size:2.2rem; font-weight:normal; letter-spacing:2px; color:#f0e6d8; margin-bottom:18px; }
+  h2 { text-align:center; font-size:1.05rem; letter-spacing:4px; text-transform:uppercase; color:#e6d9c4; margin-bottom:22px; font-weight:normal; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--font-main);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      font-size: 15px;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    button { cursor: pointer; border: none; font-family: inherit; }
-    input, select { font-family: inherit; font-size: 14px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; width: 100%; background: #fff; }
+  /* ---------- buttons ---------- */
+  .mbtn {
+    background:#3f1526; border:1px solid #6b2440; color:#f2e7e7;
+    font-family:inherit; font-size:1rem; padding:8px 18px;
+    border-radius:6px; cursor:pointer; transition:all .2s;
+  }
+  .mbtn:hover { background:#54203a; border-color:#8a3050; }
+  .mbtn.small { font-size:.75rem; padding:4px 12px; }
 
-    /* 🔵 Синий ползунок цены */
-    input[type="range"] {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 6px;
-      background: #e5e7eb;
-      border-radius: 3px;
-      outline: none;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--accent);
-      cursor: pointer;
-      transition: background 0.2s;
-      border: 2px solid #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    input[type="range"]::-webkit-slider-thumb:hover {
-      background: var(--accent-hover);
-    }
-    input[type="range"]::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--accent);
-      cursor: pointer;
-      border: 2px solid #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
+  /* ---------- left: controls ---------- */
+  .ctrl-row { display:flex; align-items:center; gap:14px; margin:14px 0; }
+  .icon {
+    width:44px; height:44px; border-radius:6px; position:relative;
+    flex-shrink:0; overflow:hidden; border:1px solid #000;
+  }
+  .icon img { width:100%; height:100%; object-fit:cover; display:block; }
+  .icon svg { width:70%; height:70%; position:absolute; top:15%; left:15%; }
+  .icon .badge {
+    position:absolute; right:3px; bottom:1px; font-size:.75rem; font-weight:bold;
+    color:#fff; text-shadow:0 1px 3px #000, 0 0 5px #000;
+  }
+  .ctrl-row span { font-size:1.02rem; }
 
-    /* Header */
-    header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      position: sticky; top: 0; z-index: 100;
-      padding: 14px 0;
-    }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-    .header-inner { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
-    nav a { margin-left: 20px; font-weight: 500; color: var(--text-muted); transition: color 0.2s; font-size: 15px; }
-    nav a:hover, nav a.active { color: var(--accent); }
-    .mobile-menu-btn { display: none; background: none; font-size: 24px; }
+  .kb-head { display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid #2a2022; margin-top:26px; padding-top:18px; }
+  .kb-head h3 { font-size:.85rem; letter-spacing:3px; text-transform:uppercase; font-weight:normal; color:#c9b89a; }
+  .kb-row { display:flex; justify-content:space-between; align-items:center; margin:12px 0; }
+  .kb-row label { font-size:.92rem; color:#c9b89a; }
+  .kb-btn { min-width:80px; text-align:center; font-weight:bold; }
+  .kb-btn.listening { border-color:#c9a24a; color:#ffd97a; animation:pulse 1s infinite; }
+  @keyframes pulse { 50% { box-shadow:0 0 12px rgba(201,162,74,.6); } }
 
-    /* Main */
-    main { padding: 24px 0 90px; }
-    h1 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+  /* ---------- center ---------- */
+  .center { text-align:center; }
+  .pills { display:flex; gap:10px; justify-content:center; margin-bottom:22px; }
+  .pill.active { border-color:#c9a24a; color:#ffd97a; }
+  .portrait {
+    width:150px; height:150px; margin:0 auto 22px; border-radius:8px;
+    border:1px solid #3a2a2e; overflow:hidden;
+    background:radial-gradient(circle at 40% 35%, #6a5a9a, #2a1a4a 60%, #120a24);
+  }
+  .portrait img { width:100%; height:100%; object-fit:cover; }
+  .start {
+    background:#4a182c; border:1px solid #7a2a44; color:#f2e7e7;
+    font-family:inherit; font-size:1.45rem; padding:14px 46px;
+    border-radius:8px; cursor:pointer; margin-bottom:24px; transition:all .2s;
+  }
+  .start:hover { background:#5e2038; box-shadow:0 0 18px rgba(122,42,68,.5); }
+  .start span { display:block; font-size:.78rem; color:#b78f9f; margin-top:4px; }
+  .timer {
+    font-size:3rem; color:#e8dcc8; margin-bottom:20px;
+    font-variant-numeric:tabular-nums; text-shadow:0 0 14px rgba(201,162,74,.35);
+  }
+  .fail-msg { color:#e74c3c; font-size:1.05rem; letter-spacing:1px; margin:0 0 24px; }
+  .fail-msg #failText { margin-bottom:12px; }
+  .seq {
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+    background:#120d0e; border:1px solid #241a1c; border-radius:8px;
+    padding:18px; margin-bottom:26px; min-height:76px; align-items:center;
+  }
+  .chip {
+    background:#241a1c; border:1px solid #3a2a2e; border-radius:6px;
+    padding:9px 15px; font-weight:bold; font-size:1.05rem; color:#c9b89a;
+    min-width:48px; transition:all .15s;
+  }
+  .chip.current {
+    border-color:#c9a24a; color:#ffd97a; transform:scale(1.1);
+    box-shadow:0 0 12px rgba(201,162,74,.5);
+  }
+  .chip.done { opacity:.32; }
+  .chip.wrong { animation:shake .25s; border-color:#c0392b; color:#e74c3c; }
+  @keyframes shake { 25%{transform:translateX(-6px);} 75%{transform:translateX(6px);} }
 
-    /* Filters */
-    .controls { 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-      gap: 12px; margin-bottom: 20px; background: var(--card); 
-      padding: 16px; border-radius: var(--radius); box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
-    }
-    .control-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 4px; color: var(--text-muted); }
-    .range-wrap { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .icon-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
+  .ibtn {
+    background:none; border:none; padding:0; cursor:pointer; position:relative;
+  }
+  .ibtn .icon { width:64px; height:64px; transition:all .12s; }
+  .ibtn:hover .icon { transform:scale(1.08); box-shadow:0 0 14px rgba(201,162,74,.45); border-color:#c9a24a; }
+  .ibtn:active .icon { transform:scale(.94); }
+  .ibtn .badge { font-size:.9rem; }
 
-    /* List Layout */
-    .device-list { display: flex; flex-direction: column; gap: 0; background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    .list-header {
-      display: grid; grid-template-columns: 70px 1fr auto auto auto auto;
-      align-items: center; gap: 12px; padding: 12px 16px;
-      background: #f9fafb; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 500; color: var(--text-muted);
-    }
-    .device-row { 
-      display: grid; 
-      grid-template-columns: 70px 1fr auto auto auto auto;
-      align-items: center; 
-      gap: 12px; 
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border); 
-      transition: background 0.2s;
-    }
-    .device-row:last-child { border-bottom: none; }
-    .device-row:hover { background: var(--hover); }
-    
-    .row-img { width: 60px; height: 60px; border-radius: 6px; overflow: hidden; background: #e5e7eb; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-    .row-img img { width: 100%; height: 100%; object-fit: contain; }
-    .row-info { min-width: 0; }
-    .row-title { font-weight: 600; font-size: 16px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .row-brand { font-size: 13px; color: var(--text-muted); }
-    .row-specs { font-size: 13px; color: var(--text-muted); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .row-meta { text-align: right; min-width: 100px; }
-    .row-rating { font-size: 13px; color: #f59e0b; margin-bottom: 2px; font-weight: 500; }
-    .row-price { font-weight: 700; color: var(--accent); font-size: 16px; }
-    
-    /* Кнопки магазинов */
-    .buy-links { 
-      display: flex; 
-      gap: 6px; 
-      flex-wrap: wrap; 
-      align-items: center;
-      justify-content: flex-end;
-    }
-    .buy-btn {
-      display: inline-block;
-      padding: 5px 10px;
-      text-decoration: none;
-      color: #fff;
-      border-radius: 5px;
-      font-size: 12px;
-      font-weight: 500;
-      transition: opacity 0.2s, transform 0.1s;
-      white-space: nowrap;
-    }
-    .buy-btn:hover { opacity: 0.85; transform: translateY(-1px); }
-    .dns       { background: #f5a623; }
-    .citilink  { background: #0056b3; }
-    .ymarket   { background: #fc3f1d; }
-    .mvideo    { background: #00a651; }
+  .hint { font-size:.82rem; color:#8a7a6a; line-height:1.7; }
 
-    .row-action button { padding: 8px 14px; border-radius: 6px; font-weight: 500; font-size: 14px; transition: all 0.2s; }
-    .btn-compare { background: transparent; border: 1px solid var(--border); color: var(--text); }
-    .btn-compare:hover { background: #f3f4f6; }
-    .btn-compare.active { background: var(--accent); color: white; border-color: var(--accent); }
+  /* ---------- result ---------- */
+  .result { margin-bottom:24px; }
+  .medal { margin:0 auto 10px; width:120px; height:120px; }
+  .rank-name { font-size:2rem; letter-spacing:3px; margin-bottom:2px; text-transform:uppercase; }
+  .rank-ru { font-size:.95rem; letter-spacing:3px; color:#b8a98f; margin-bottom:8px; text-transform:uppercase; }
+  .res-time { font-size:2.6rem; color:#ffd97a; margin-bottom:16px; font-variant-numeric:tabular-nums; }
 
-    /* Compare Panel — СНИЗУ */
-    .compare-panel {
-      position: fixed; bottom: 0; left: 0; right: 0; background: var(--card);
-      border-top: 1px solid var(--border); padding: 12px 16px; box-shadow: 0 -4px 6px rgba(0,0,0,0.05);
-      z-index: 90; display: none; justify-content: space-between; align-items: center;
-    }
-    .compare-panel.show { display: flex; }
-    .compare-count { font-weight: 600; }
-    .compare-actions { display: flex; gap: 10px; }
-    .btn-sm { padding: 8px 14px; border-radius: 6px; font-size: 14px; }
-    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
-    .btn-outline:hover { background: #f3f4f6; }
-    .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: var(--accent-hover); }
+  /* ---------- rank images ---------- */
+  .rank-img { display:flex; align-items:center; justify-content:center; margin:0 auto; }
+  .rank-img img, .rank-img svg { width:100%; height:100%; object-fit:contain; display:block; filter:drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
 
-    /* Comparison Table */
-    #compare-view { display: none; padding-top: 20px; }
-    .table-wrapper { overflow-x: auto; background: var(--card); border-radius: var(--radius); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    table { width: 100%; border-collapse: collapse; min-width: 600px; }
-    th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: middle; }
-    th:first-child { position: sticky; left: 0; background: var(--card); font-weight: 600; color: var(--text-muted); z-index: 10; min-width: 160px; }
-    th { background: #f9fafb; font-weight: 500; font-size: 14px; }
-    .spec-row { font-size: 14px; }
-    .best-value { color: var(--success); font-weight: 700; position: relative; padding-left: 22px; }
-    .best-value::before { content: '▲'; color: var(--success); position: absolute; left: 6px; font-size: 10px; top: 50%; transform: translateY(-50%); }
-    .price-cell { color: var(--accent); font-weight: 700; }
-    .price-cell.best-value::before { content: '▼'; }
-    .hidden-spec { display: none; }
-    .toggle-specs { margin: 14px 0; background: transparent; color: var(--accent); font-weight: 500; font-size: 14px; padding: 4px 0; }
-    .toggle-specs:hover { text-decoration: underline; }
+  /* ---------- right: procasts ---------- */
+  .pc-item {
+    display:flex; gap:12px; align-items:center; padding:10px;
+    border:1px solid transparent; border-radius:8px; cursor:pointer; margin-bottom:8px;
+    transition:background .15s;
+  }
+  .pc-item:hover { background:#241a1c; }
+  .pc-item.active { border-color:#c9a24a; background:#241a1c; }
+  .pc-item .icon { width:40px; height:40px; }
+  .pc-item b { display:block; font-size:.98rem; color:#f0e6d8; font-weight:normal; margin-bottom:4px; }
+  .pc-item .combo { font-size:.78rem; letter-spacing:2px; color:#b8963e; }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .list-header, .device-row { grid-template-columns: 50px 1fr auto auto auto !important; }
-      .buy-links { justify-content: flex-start; }
-    }
-    @media (max-width: 768px) {
-      .header-inner nav { display: none; }
-      .mobile-menu-btn { display: block; }
-      .controls { grid-template-columns: 1fr 1fr; }
-      .list-header, .device-row { grid-template-columns: 50px 1fr auto auto auto !important; gap: 10px; padding: 10px 12px; }
-      .row-img { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
-      .row-img img { object-fit: contain; }
-      .buy-links { gap: 4px; }
-      .buy-btn { padding: 4px 8px; font-size: 11px; }
-      .row-action { display: none; }
-    }
-    @media (max-width: 480px) {
-      .controls { grid-template-columns: 1fr; }
-      .list-header { display: none; }
-      .device-row { grid-template-columns: 60px 1fr auto; gap: 8px; }
-      .row-img { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
-      .row-img img { object-fit: contain; }
-      .row-specs { font-size: 12px; }
-      .row-meta { min-width: auto; text-align: right; font-size: 13px; }
-      .buy-links { display: none; }
-    }
-  </style>
+  /* ---------- records / rating ---------- */
+  .records { max-width:1400px; margin:20px auto 0; }
+  .rec-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .rec-card { background:#120d0e; border:1px solid #241a1c; border-radius:8px; padding:18px; text-align:center; }
+  .rec-card b { display:block; font-weight:normal; color:#c9b89a; margin-bottom:10px; letter-spacing:1px; }
+  .rec-card .rank-img { margin-bottom:8px; }
+  .rec-card .t { font-size:1.9rem; color:#ffd97a; font-variant-numeric:tabular-nums; }
+  .rec-card .r { font-size:.95rem; letter-spacing:2px; margin-top:6px; text-transform:uppercase; }
+
+  .rating-tabs { display:flex; gap:10px; justify-content:center; margin-bottom:10px; }
+  .rating-tabs .active { border-color:#c9a24a; color:#ffd97a; }
+  .rating-sub { text-align:center; margin-bottom:22px; }
+  .rank-grid { display:grid; grid-template-columns:repeat(8,1fr); gap:14px; }
+  .rank-card {
+    background:#120d0e; border:1px solid #241a1c; border-radius:8px;
+    padding:16px 8px 14px; text-align:center; position:relative; transition:all .2s;
+  }
+  .rank-card .rank-img { width:84px; height:84px; margin-bottom:10px; }
+  .rank-card .nm { font-size:1.02rem; letter-spacing:2px; text-transform:uppercase; }
+  .rank-card .ru { font-size:.78rem; letter-spacing:2px; color:#a89878; margin-top:2px; text-transform:uppercase; }
+  .rank-card .lim { font-size:.88rem; color:#e6d9c4; margin-top:10px; font-variant-numeric:tabular-nums; }
+  .rank-card.mine { background:#1d1416; box-shadow:0 0 16px rgba(201,162,74,.28); }
+  .rank-card .you {
+    position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+    background:#c9a24a; color:#1a1208; font-size:.65rem; letter-spacing:2px;
+    padding:2px 10px; border-radius:10px; text-transform:uppercase; font-weight:bold; white-space:nowrap;
+  }
+
+  .pills, .rating-tabs { flex-wrap:wrap; }
+  .pc-form { margin-top:14px; border-top:1px solid #2a2022; padding-top:14px; }
+  .pc-form input {
+    width:100%; background:#120d0e; border:1px solid #3a2a2e; color:#e6d9c4;
+    font-family:inherit; font-size:.95rem; padding:8px 10px; border-radius:6px; margin-bottom:10px;
+  }
+  .pc-form input:focus { outline:none; border-color:#c9a24a; }
+  .pc-hint { font-size:.78rem; color:#8a7a6a; margin-bottom:8px; }
+  .pc-palette { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+  .pc-palette .ibtn .icon { width:44px; height:44px; }
+  .pc-palette .ibtn .badge { font-size:.7rem; }
+  .pc-draft { min-height:56px; padding:10px; gap:6px; margin-bottom:10px; }
+  .pc-draft .chip { padding:5px 9px; font-size:.85rem; min-width:34px; }
+  .pc-actions { display:flex; gap:8px; }
+  .pc-err { color:#e74c3c; font-size:.8rem; min-height:1em; margin-top:8px; }
+  .rec-grid { grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+  .hidden { display:none !important; }
+
+  @media (max-width:1100px){
+    .layout { grid-template-columns:1fr; }
+    .rec-grid { grid-template-columns:1fr; }
+    .rank-grid { grid-template-columns:repeat(4,1fr); }
+  }
+  @media (max-width:600px){
+    .rank-grid { grid-template-columns:repeat(2,1fr); }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="container header-inner">
-      <div class="logo">СравниГаджет</div>
-      <nav>
-        <a href="#" class="active">Каталог</a>
-      </nav>
-      <button class="mobile-menu-btn">☰</button>
+
+<div class="layout">
+
+  <!-- LEFT -->
+  <aside class="panel">
+    <h2>Controls</h2>
+    <div id="ctrlList"></div>
+    <div class="kb-head">
+      <h3>Keybinds</h3>
+      <button class="mbtn small" id="kbReset">Reset</button>
     </div>
-  </header>
+    <div id="kbList" style="margin-top:14px;"></div>
+  </aside>
 
-  <main class="container">
-    <h1>Каталог устройств</h1>
-    
-    <div id="catalog-view">
-      <div class="controls">
-        <div class="control-group">
-          <label>Категория</label>
-          <select id="filter-category">
-            <option value="all">Все</option>
-            <option value="smartphone">Смартфоны</option>
-            <option value="laptop">Ноутбуки</option>
-            <option value="watch">Умные часы</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label>Бренд</label>
-          <select id="filter-brand">
-            <option value="all">Все</option>
-            <option value="Apple">Apple</option>
-            <option value="Samsung">Samsung</option>
-            <option value="Xiaomi">Xiaomi</option>
-            <option value="Huawei">Huawei</option>
-            <option value="ASUS">ASUS</option>
-            <option value="OnePlus">OnePlus</option>
-            <option value="Lenovo">Lenovo</option>
-            <option value="Realme">Realme</option>
-            <option value="Honor">Honor</option>
-            <option value="Google">Google</option>
-            <option value="Nothing">Nothing</option>
-            <option value="Garmin">Garmin</option>
-            <option value="HP">HP</option>
-            <option value="Dell">Dell</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label>Цена до</label>
-          <input type="range" id="filter-price" min="10000" max="500000" step="5000" value="500000">
-          <div class="range-wrap"><span>10 000 ₽</span><span id="price-val">500 000 ₽</span></div>
-        </div>
-        <div class="control-group">
-          <label>ОЗУ от</label>
-          <select id="filter-ram">
-            <option value="all">Любая</option>
-            <option value="4">4 ГБ</option>
-            <option value="8">8 ГБ</option>
-            <option value="16">16 ГБ</option>
-            <option value="32">32 ГБ</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label>Сортировка</label>
-          <select id="sort">
-            <option value="pop">По популярности</option>
-            <option value="price-asc">Цена ↑</option>
-            <option value="price-desc">Цена ↓</option>
-            <option value="year">Год выпуска</option>
-            <option value="rating">Рейтинг</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="device-list" id="device-list"></div>
+  <!-- CENTER -->
+  <main class="panel center">
+    <h1>Arc Warden Game</h1>
+    <div class="pills" id="pills"></div>
+    <div class="portrait">
+      <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/arc_warden.png"
+           onerror="this.remove()" alt="Arc Warden">
     </div>
 
-    <div id="compare-view">
-      <button class="btn-sm btn-outline" onclick="toggleView('catalog'); return false;" style="margin-bottom: 14px;">← Назад в каталог</button>
-      <h2 style="margin-bottom: 12px;">Сравнение устройств</h2>
-      <button id="toggle-full-specs" class="toggle-specs" onclick="toggleSpecsVisibility(); return false;">Показать все характеристики</button>
-      <div class="table-wrapper">
-        <table id="compare-table">
-          <thead id="compare-head"></thead>
-          <tbody id="compare-body"></tbody>
-        </table>
-      </div>
+    <button class="start" id="startBtn">Start Game<span>or press Enter</span></button>
+
+    <div class="timer hidden" id="timer">0.00</div>
+    <div class="fail-msg hidden" id="failMsg">
+      <div id="failText"></div>
+      <button class="mbtn" id="failAgain">╨Х╤Й╤С ╤А╨░╨╖ (Enter)</button>
     </div>
+
+    <div class="result hidden" id="result">
+      <div class="medal" id="medal"></div>
+      <div class="rank-name" id="rankName"></div>
+      <div class="rank-ru" id="rankRu"></div>
+      <div class="res-time" id="resTime"></div>
+      <button class="mbtn" id="againBtn">╨Х╤Й╤С ╤А╨░╨╖ (Enter)</button>
+    </div>
+
+    <div class="seq" id="seq"></div>
+    <div class="icon-row" id="iconRow"></div>
+
+    <p class="hint">
+ ╨Э╨░╨╢╨╕╨╝╨░╨╣╤В╨╡ ╨╕╨║╨╛╨╜╨║╨╕ ╨╝╤Л╤И╤М╤О ╨╕╨╗╨╕ ╨║╨╗╨░╨▓╨╕╤И╨░╨╝╨╕ ╨╜╨░ ╨║╨╗╨░╨▓╨╕╨░╤В╤Г╤А╨╡ тАФ ╤А╨░╨▒╨╛╤В╨░╨╡╤В ╨╕ ╨╜╨░ ╤А╤Г╤Б╤Б╨║╨╛╨╣, ╨╕ ╨╜╨░ ╨░╨╜╨│╨╗╨╕╨╣╤Б╨║╨╛╨╣ ╤А╨░╤Б╨║╨╗╨░╨┤╨║╨╡.<br>
+ ╨Я╨Ъ╨Ь тАФ ╤В╨╛╨╗╤М╨║╨╛ ╨┐╤А╨░╨▓╤Л╨╣ ╨║╨╗╨╕╨║ ╨╝╤Л╤И╨╕ (╨Я╤А╨╛╨▒╨╡╨╗ ╨╜╨╡ ╨╖╨░╤Б╤З╨╕╤В╤Л╨▓╨░╨╡╤В╤Б╤П). ╨Ъ╨╗╨░╨▓╨╕╤И╨░ Tab ╨▓╨╛ ╨▓╤А╨╡╨╝╤П ╨╕╨│╤А╤Л ╨┐╨╡╤А╨╡╤Е╨▓╨░╤В╤Л╨▓╨░╨╡╤В╤Б╤П.<br>
+ ╨Х╤Б╨╗╨╕ ╨▓╨╝╨╡╤Б╤В╨╛ ╨╜╤Г╨╢╨╜╨╛╨╣ ╨║╨╜╨╛╨┐╨║╨╕ ╨╜╨░╨╢╨░╤В╤М ╨╛╨┤╨╜╤Г ╨╕╨╖ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╤Е ╨┐╨╛ ╨║╨╛╨╝╨▒╨╛ (╤Б╨┐╨╛╤Б╨╛╨▒╨╜╨╛╤Б╤В╤М ╨╜╨╡ ╨▓ ╨╛╤В╨║╨░╤В╨╡ ╤Г ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨│╨╡╤А╨╛╤П, TAB, ╨Я╨Ъ╨Ь ╨╕ ╤В.╨┤.) тАФ ╨┐╨╛╨┐╤Л╤В╨║╨░ ╤Б╨▒╤А╨░╤Б╤Л╨▓╨░╨╡╤В╤Б╤П.<br>
+ ╨Я╨╛╨▓╤В╨╛╤А╨╜╨╛╨╡ ╨╜╨░╨╢╨░╤В╨╕╨╡ ╤Г╨╢╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╜╤Л╤Е ╤Б╨┐╨╛╤Б╨╛╨▒╨╜╨╛╤Б╤В╨╡╨╣ ╨│╨╡╤А╨╛╤П (╨╛╨╜╨╕ ╨▓ ╨╛╤В╨║╨░╤В╨╡) ╨╛╤И╨╕╨▒╨║╨╛╨╣ ╨╜╨╡ ╤Б╤З╨╕╤В╨░╨╡╤В╤Б╤П. ╨а╨░╨╜╨│ ╨╖╨░╨▓╨╕╤Б╨╕╤В ╨╛╤В ╤Б╨║╨╛╤А╨╛╤Б╤В╨╕ ╨┐╤А╨╛╨║╨░╤Б╤В╨░.
+    </p>
   </main>
 
-  <!-- ПАНЕЛЬ СРАВНЕНИЯ СНИЗУ -->
-  <div class="compare-panel" id="compare-panel">
-    <div>Для сравнения: <span class="compare-count" id="count">0</span>/5</div>
-    <div class="compare-actions">
-      <button class="btn-sm btn-outline" onclick="clearCompare()">Очистить</button>
-      <button class="btn-sm btn-primary" onclick="renderCompareTable()">Сравнить</button>
+  <!-- RIGHT -->
+  <aside class="panel">
+    <h2>Procasts</h2>
+    <div id="pcList"></div>
+    <button class="mbtn small" id="pcAddBtn" style="width:100%;margin-top:6px;">+ ╨б╨▓╨╛╨╣ ╨┐╤А╨╛╨║╨░╤Б╤В</button>
+    <div class="pc-form hidden" id="pcForm">
+      <input type="text" id="pcName" maxlength="30" placeholder="╨Э╨░╨╖╨▓╨░╨╜╨╕╨╡ (╨╜╨╡╨╛╨▒╤П╨╖╨░╤В╨╡╨╗╤М╨╜╨╛)">
+      <div class="pc-hint">╨Э╨░╨╢╨╕╨╝╨░╨╣╤В╨╡ ╨╕╨║╨╛╨╜╨║╨╕, ╤З╤В╨╛╨▒╤Л ╤Б╨╛╨▒╤А╨░╤В╤М ╨║╨╛╨╝╨▒╨╛:</div>
+      <div class="pc-palette" id="pcPalette"></div>
+      <div class="seq pc-draft" id="pcDraft"></div>
+      <div class="pc-actions">
+        <button class="mbtn small" id="pcUndo">╨г╨▒╤А╨░╤В╤М ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╣</button>
+        <button class="mbtn small" id="pcClear">╨Ю╤З╨╕╤Б╤В╨╕╤В╤М</button>
+      </div>
+      <div class="pc-err" id="pcErr"></div>
+      <button class="mbtn" id="pcSave" style="width:100%;margin-top:8px;">╨б╨╛╤Е╤А╨░╨╜╨╕╤В╤М</button>
     </div>
-  </div>
+  </aside>
+</div>
 
-  <script>
-    // 🔥 РАСШИРЕННЫЙ КАТАЛОГ: 80 устройств (2024-2026)
-    const devices = [
-      // === СМАРТФОНЫ: Apple ===
-      { id: 1, brand: "Apple", model: "iPhone 15", category: "smartphone", price: 79990, year: 2023, rating: 4.8, ram: 6, storage: 128, screen: 6.1, battery: 3349, processor: "A16 Bionic", camera: "48+12 Мп", cameraMp: 48, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 2, brand: "Apple", model: "iPhone 15 Pro", category: "smartphone", price: 119990, year: 2023, rating: 4.9, ram: 8, storage: 256, screen: 6.1, battery: 3274, processor: "A17 Pro", camera: "48+12+12 Мп", cameraMp: 48, features: ["5G", "NFC", "Титан"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 3, brand: "Apple", model: "iPhone 15 Pro Max", category: "smartphone", price: 139990, year: 2023, rating: 4.9, ram: 8, storage: 256, screen: 6.7, battery: 4422, processor: "A17 Pro", camera: "48+12+12 Мп", cameraMp: 48, features: ["5G", "NFC", "Титан"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 4, brand: "Apple", model: "iPhone 16", category: "smartphone", price: 89990, year: 2024, rating: 4.8, ram: 8, storage: 128, screen: 6.1, battery: 3561, processor: "A18", camera: "48+12 Мп", cameraMp: 48, features: ["5G", "NFC", "Action Button"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 5, brand: "Apple", model: "iPhone 16 Pro Max", category: "smartphone", price: 159990, year: 2024, rating: 4.9, ram: 8, storage: 256, screen: 6.9, battery: 4685, processor: "A18 Pro", camera: "48+48+12 Мп", cameraMp: 48, features: ["5G", "NFC", "Титан", "5х зум"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 6, brand: "Apple", model: "iPhone SE 2024", category: "smartphone", price: 49990, year: 2024, rating: 4.4, ram: 6, storage: 128, screen: 4.7, battery: 2018, processor: "A15 Bionic", camera: "12 Мп", cameraMp: 12, features: ["5G", "NFC", "Touch ID"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
+<!-- RATING -->
+<section class="panel records" id="rating">
+  <h2>Rating</h2>
+  <div class="rating-tabs" id="ratingTabs"></div>
+  <p class="hint rating-sub" id="ratingSub"></p>
+  <div class="rank-grid" id="rankGrid"></div>
+</section>
 
-      // === СМАРТФОНЫ: Samsung ===
-      { id: 7, brand: "Samsung", model: "Galaxy S24", category: "smartphone", price: 89990, year: 2024, rating: 4.7, ram: 8, storage: 256, screen: 6.2, battery: 4000, processor: "Snapdragon 8 Gen 3", camera: "50+12+10 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68", "AI"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 8, brand: "Samsung", model: "Galaxy S24 Ultra", category: "smartphone", price: 129990, year: 2024, rating: 4.8, ram: 12, storage: 512, screen: 6.8, battery: 5000, processor: "Snapdragon 8 Gen 3", camera: "200+50+12+10 Мп", cameraMp: 200, features: ["5G", "NFC", "S Pen", "IP68"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 9, brand: "Samsung", model: "Galaxy S25", category: "smartphone", price: 99990, year: 2025, rating: 4.8, ram: 12, storage: 256, screen: 6.2, battery: 4200, processor: "Snapdragon 8 Gen 4", camera: "50+12+10 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68", "Galaxy AI"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 10, brand: "Samsung", model: "Galaxy Z Fold 6", category: "smartphone", price: 169990, year: 2024, rating: 4.6, ram: 12, storage: 512, screen: 7.6, battery: 4400, processor: "Snapdragon 8 Gen 3", camera: "50+12+10 Мп", cameraMp: 50, features: ["5G", "NFC", "Складной", "S Pen"], image: "https://images.unsplash.com/photo-1666246998840-5f60936b3f8a?w=400" },
-      { id: 11, brand: "Samsung", model: "Galaxy Z Flip 6", category: "smartphone", price: 109990, year: 2024, rating: 4.5, ram: 12, storage: 256, screen: 6.7, battery: 4000, processor: "Snapdragon 8 Gen 3", camera: "50+12 Мп", cameraMp: 50, features: ["5G", "NFC", "Складной"], image: "https://images.unsplash.com/photo-1666246998840-5f60936b3f8a?w=400" },
-      { id: 12, brand: "Samsung", model: "Galaxy A55", category: "smartphone", price: 34990, year: 2024, rating: 4.3, ram: 8, storage: 128, screen: 6.6, battery: 5000, processor: "Exynos 1480", camera: "50+12+5 Мп", cameraMp: 50, features: ["5G", "NFC", "IP67"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 13, brand: "Samsung", model: "Galaxy A35", category: "smartphone", price: 27990, year: 2024, rating: 4.2, ram: 6, storage: 128, screen: 6.6, battery: 5000, processor: "Exynos 1380", camera: "50+8+5 Мп", cameraMp: 50, features: ["5G", "NFC", "IP67"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
+<!-- RECORDS -->
+<section class="panel records">
+  <h2>Records</h2>
+  <div class="rec-grid" id="recGrid"></div>
+</section>
 
-      // === СМАРТФОНЫ: Xiaomi / Poco / Redmi ===
-      { id: 14, brand: "Xiaomi", model: "14 Ultra", category: "smartphone", price: 119990, year: 2024, rating: 4.8, ram: 16, storage: 512, screen: 6.73, battery: 5300, processor: "Snapdragon 8 Gen 3", camera: "4x50 Мп Leica", cameraMp: 4, features: ["5G", "NFC", "IP68", "120W"], image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
-      { id: 15, brand: "Xiaomi", model: "14 Pro", category: "smartphone", price: 89990, year: 2024, rating: 4.7, ram: 12, storage: 256, screen: 6.73, battery: 4880, processor: "Snapdragon 8 Gen 3", camera: "50+50+50 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
-      { id: 16, brand: "Xiaomi", model: "14", category: "smartphone", price: 69990, year: 2024, rating: 4.6, ram: 12, storage: 256, screen: 6.36, battery: 4610, processor: "Snapdragon 8 Gen 3", camera: "50+50+50 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
-      { id: 17, brand: "Xiaomi", model: "Redmi Note 13 Pro+", category: "smartphone", price: 34990, year: 2024, rating: 4.5, ram: 12, storage: 512, screen: 6.67, battery: 5000, processor: "Dimensity 7200", camera: "200+8+2 Мп", cameraMp: 200, features: ["5G", "NFC", "IP68", "120W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 18, brand: "Xiaomi", model: "Redmi Note 13 Pro", category: "smartphone", price: 24990, year: 2024, rating: 4.4, ram: 8, storage: 256, screen: 6.67, battery: 5100, processor: "Snapdragon 7s Gen 2", camera: "200+8+2 Мп", cameraMp: 200, features: ["4G", "NFC", "IP54"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 19, brand: "Xiaomi", model: "Poco F6 Pro", category: "smartphone", price: 44990, year: 2024, rating: 4.5, ram: 12, storage: 512, screen: 6.67, battery: 5000, processor: "Snapdragon 8 Gen 2", camera: "50+8+2 Мп", cameraMp: 50, features: ["5G", "NFC", "120W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 20, brand: "Xiaomi", model: "Poco X6 Pro", category: "smartphone", price: 32990, year: 2024, rating: 4.4, ram: 8, storage: 256, screen: 6.67, battery: 5000, processor: "Dimensity 8300", camera: "64+8+2 Мп", cameraMp: 64, features: ["5G", "NFC", "67W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 21, brand: "Xiaomi", model: "Redmi 13C", category: "smartphone", price: 12990, year: 2024, rating: 4.1, ram: 4, storage: 128, screen: 6.74, battery: 5000, processor: "Helio G85", camera: "50+2 Мп", cameraMp: 50, features: ["4G", "NFC", "Бюджет"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
+<script>
+/* ================= DATA ================= */
+const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/';
 
-      // === СМАРТФОНЫ: Google / Nothing / OnePlus ===
-      { id: 22, brand: "Google", model: "Pixel 9 Pro", category: "smartphone", price: 109990, year: 2024, rating: 4.7, ram: 12, storage: 256, screen: 6.3, battery: 4700, processor: "Tensor G4", camera: "50+48+48 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68", "AI"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 23, brand: "Google", model: "Pixel 9", category: "smartphone", price: 84990, year: 2024, rating: 4.6, ram: 12, storage: 128, screen: 6.3, battery: 4700, processor: "Tensor G4", camera: "50+48 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 24, brand: "Google", model: "Pixel 8a", category: "smartphone", price: 49990, year: 2024, rating: 4.5, ram: 8, storage: 128, screen: 6.1, battery: 4492, processor: "Tensor G3", camera: "64+12 Мп", cameraMp: 64, features: ["5G", "NFC", "IP67"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 25, brand: "Nothing", model: "Phone (3)", category: "smartphone", price: 64990, year: 2025, rating: 4.5, ram: 12, storage: 256, screen: 6.78, battery: 5000, processor: "Snapdragon 8s Gen 3", camera: "50+50 Мп", cameraMp: 50, features: ["5G", "NFC", "Glyph Interface"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 26, brand: "Nothing", model: "Phone (2a)", category: "smartphone", price: 34990, year: 2024, rating: 4.3, ram: 8, storage: 256, screen: 6.7, battery: 5000, processor: "Dimensity 7200", camera: "50+50 Мп", cameraMp: 50, features: ["5G", "NFC", "Glyph"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 27, brand: "OnePlus", model: "13", category: "smartphone", price: 94990, year: 2025, rating: 4.7, ram: 16, storage: 512, screen: 6.82, battery: 6000, processor: "Snapdragon 8 Elite", camera: "50+50+64 Мп", cameraMp: 50, features: ["5G", "NFC", "100W"], image: "https://images.unsplash.com/photo-1660463975891-5f69a1999fea?w=400" },
-      { id: 28, brand: "OnePlus", model: "12", category: "smartphone", price: 79990, year: 2024, rating: 4.6, ram: 12, storage: 256, screen: 6.82, battery: 5400, processor: "Snapdragon 8 Gen 3", camera: "50+64+48 Мп", cameraMp: 50, features: ["5G", "NFC", "100W"], image: "https://images.unsplash.com/photo-1660463975891-5f69a1999fea?w=400" },
-      { id: 29, brand: "OnePlus", model: "Nord 4", category: "smartphone", price: 44990, year: 2024, rating: 4.4, ram: 12, storage: 256, screen: 6.74, battery: 5500, processor: "Snapdragon 7+ Gen 3", camera: "50+8 Мп", cameraMp: 50, features: ["5G", "NFC", "100W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
+const ICONS = {
+  Q:     { img:'abilities/arc_warden_flux.png',            g:'radial-gradient(circle at 35% 35%, #7fd8ff, #1a4a8a 60%, #0a1a3a)' },
+  W:     { img:'abilities/arc_warden_magnetic_field.png',  g:'radial-gradient(circle at 35% 35%, #ff8a6a, #8a2a1a 60%, #3a0a0a)' },
+  E:     { img:'abilities/arc_warden_spark_wraith.png',    g:'radial-gradient(circle at 35% 35%, #8affc8, #1a8a5a 60%, #0a3a2a)' },
+  R:     { img:'abilities/arc_warden_tempest_double.png',  g:'radial-gradient(circle at 35% 35%, #b08aff, #4a1a8a 60%, #1a0a3a)' },
+  MANTA: { img:'items/manta.png',                          g:'radial-gradient(circle at 35% 35%, #ffb06a, #8a4a1a 60%, #3a1a0a)' },
+  ALL:   { img:null, g:'radial-gradient(circle at 35% 35%, #ffe08a, #8a6a1a 60%, #3a2a0a)',
+           svg:'<svg viewBox="0 0 24 24" fill="#f5e9c8"><circle cx="7" cy="8" r="3.2"/><circle cx="17" cy="8" r="3.2"/><circle cx="12" cy="16" r="3.2"/></svg>' },
+  NEXT:  { img:null, g:'radial-gradient(circle at 35% 35%, #d0d0d0, #6a6a6a 60%, #2a2a2a)',
+           svg:'<svg viewBox="0 0 24 24" fill="none" stroke="#f5e9c8" stroke-width="2"><path d="M4 8h12m0 0-3-3m3 3-3 3M20 16H8m0 0 3-3m-3 3 3 3"/></svg>' },
+  RMB:   { img:null, g:'radial-gradient(circle at 35% 35%, #ff7a7a, #8a1a1a 60%, #3a0a0a)',
+           svg:'<svg viewBox="0 0 24 24" fill="none" stroke="#f5e9c8" stroke-width="2"><rect x="8" y="3" width="8" height="18" rx="4"/><path d="M12 3.5c2.2 0 4 1.8 4 4V11h-4z" fill="#f5e9c8" stroke="none"/></svg>' }
+};
 
-      // === СМАРТФОНЫ: Huawei / Honor / Realme ===
-      { id: 30, brand: "Huawei", model: "Pura 70 Ultra", category: "smartphone", price: 109990, year: 2024, rating: 4.6, ram: 16, storage: 512, screen: 6.8, battery: 5200, processor: "Kirin 9010", camera: "50+40+50 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400" },
-      { id: 31, brand: "Huawei", model: "Pura 70 Pro", category: "smartphone", price: 89990, year: 2024, rating: 4.5, ram: 12, storage: 512, screen: 6.8, battery: 5050, processor: "Kirin 9010", camera: "50+12.5+40 Мп", cameraMp: 50, features: ["5G", "NFC", "IP65"], image: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400" },
-      { id: 32, brand: "Honor", model: "Magic 7 Pro", category: "smartphone", price: 94990, year: 2025, rating: 4.7, ram: 16, storage: 512, screen: 6.8, battery: 5600, processor: "Snapdragon 8 Elite", camera: "50+200+50 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 33, brand: "Honor", model: "Magic 6 Pro", category: "smartphone", price: 84990, year: 2024, rating: 4.6, ram: 12, storage: 512, screen: 6.8, battery: 5600, processor: "Snapdragon 8 Gen 3", camera: "50+180+50 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 34, brand: "Honor", model: "200 Pro", category: "smartphone", price: 54990, year: 2024, rating: 4.4, ram: 12, storage: 512, screen: 6.78, battery: 5000, processor: "Snapdragon 8s Gen 3", camera: "200+50+12 Мп", cameraMp: 200, features: ["5G", "NFC", "100W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 35, brand: "Realme", model: "GT 6", category: "smartphone", price: 54990, year: 2024, rating: 4.5, ram: 12, storage: 256, screen: 6.78, battery: 5500, processor: "Snapdragon 8s Gen 3", camera: "50+50+8 Мп", cameraMp: 50, features: ["5G", "NFC", "120W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 36, brand: "Realme", model: "GT 5 Pro", category: "smartphone", price: 64990, year: 2024, rating: 4.5, ram: 12, storage: 256, screen: 6.78, battery: 5400, processor: "Snapdragon 8 Gen 3", camera: "50+50+8 Мп", cameraMp: 50, features: ["5G", "NFC", "120W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
-      { id: 37, brand: "Realme", model: "C67", category: "smartphone", price: 22990, year: 2024, rating: 4.2, ram: 8, storage: 256, screen: 6.72, battery: 5000, processor: "Snapdragon 685", camera: "108+2 Мп", cameraMp: 108, features: ["4G", "NFC", "33W"], image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" },
+const NAMES = {
+  Q:'Flux', W:'Magnetic Field', E:'Spark Wraith', R:'Tempest Double',
+  MANTA:'Manta Style', ALL:'╨Т╤Б╨╡ ╤Б╤Г╤Й╨╡╤Б╤В╨▓╨░', NEXT:'╨б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╡ ╤Б╤Г╤Й╨╡╤Б╤В╨▓╨╛', RMB:'╨Я╨Ъ╨Ь (╨░╤В╨░╨║╨░/╨┤╨▓╨╕╨╢╨╡╨╜╨╕╨╡)'
+};
 
-      // === НОУТБУКИ: Apple ===
-      { id: 38, brand: "Apple", model: "MacBook Air M2", category: "laptop", price: 119990, year: 2022, rating: 4.9, ram: 8, storage: 256, screen: 13.6, battery: 18, processor: "Apple M2", camera: "1080p", cameraMp: 1080, weight: 1.24, features: ["Wi-Fi 6", "Thunderbolt"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
-      { id: 39, brand: "Apple", model: "MacBook Air M3 13\"", category: "laptop", price: 134990, year: 2024, rating: 4.9, ram: 8, storage: 256, screen: 13.6, battery: 18, processor: "Apple M3", camera: "1080p", cameraMp: 1080, weight: 1.24, features: ["Wi-Fi 6E", "Thunderbolt"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
-      { id: 40, brand: "Apple", model: "MacBook Air M3 15\"", category: "laptop", price: 154990, year: 2024, rating: 4.9, ram: 8, storage: 256, screen: 15.3, battery: 18, processor: "Apple M3", camera: "1080p", cameraMp: 1080, weight: 1.51, features: ["Wi-Fi 6E", "Thunderbolt"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
-      { id: 41, brand: "Apple", model: "MacBook Pro 14 M4", category: "laptop", price: 199990, year: 2024, rating: 4.9, ram: 16, storage: 512, screen: 14.2, battery: 17, processor: "Apple M4", camera: "1080p", cameraMp: 1080, weight: 1.55, features: ["Wi-Fi 6E", "Mini-LED", "Thunderbolt 5"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
-      { id: 42, brand: "Apple", model: "MacBook Pro 16 M4 Pro", category: "laptop", price: 279990, year: 2024, rating: 4.9, ram: 18, storage: 512, screen: 16.2, battery: 22, processor: "Apple M4 Pro", camera: "1080p", cameraMp: 1080, weight: 2.15, features: ["Wi-Fi 6E", "Mini-LED", "Thunderbolt 5"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
+const VARIANTS = {
+  1:{ name:'╨Т╨░╤А╨╕╨░╨╜╤В 1 тАФ ╨▒╨░╨╖╨╛╨▓╤Л╨╣',
+      seq:['Q','R','NEXT','Q','E','NEXT','E','ALL','RMB'] },
+  2:{ name:'╨Т╨░╤А╨╕╨░╨╜╤В 2 тАФ ╤Б Magnetic Field',
+      seq:['Q','R','NEXT','Q','E','NEXT','E','W','NEXT','W','ALL','RMB'] },
+  3:{ name:'╨Т╨░╤А╨╕╨░╨╜╤В 3 тАФ ╤Б Manta Style',
+      seq:['Q','R','NEXT','Q','E','NEXT','E','MANTA','NEXT','MANTA','W','NEXT','W','ALL','RMB'] }
+};
 
-      // === НОУТБУКИ: ASUS / Lenovo / HP / Dell ===
-      { id: 43, brand: "ASUS", model: "Zenbook S 14", category: "laptop", price: 119990, year: 2024, rating: 4.7, ram: 16, storage: 512, screen: 14, battery: 15, processor: "Core Ultra 7", camera: "1080p", cameraMp: 1080, weight: 1.28, features: ["Wi-Fi 6E", "OLED"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 44, brand: "ASUS", model: "Zenbook 14 OLED", category: "laptop", price: 89990, year: 2024, rating: 4.6, ram: 16, storage: 512, screen: 14, battery: 14, processor: "Core Ultra 5", camera: "1080p", cameraMp: 1080, weight: 1.39, features: ["Wi-Fi 6E", "OLED"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 45, brand: "ASUS", model: "Vivobook 15", category: "laptop", price: 54990, year: 2024, rating: 4.3, ram: 8, storage: 512, screen: 15.6, battery: 10, processor: "Core i5-1335U", camera: "720p", cameraMp: 720, weight: 1.7, features: ["Wi-Fi 6", "IPS"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 46, brand: "ASUS", model: "ROG Zephyrus G14", category: "laptop", price: 169990, year: 2024, rating: 4.7, ram: 32, storage: 1024, screen: 14, battery: 10, processor: "Ryzen 9 8945HS", camera: "720p", cameraMp: 720, weight: 1.65, features: ["Wi-Fi 6E", "RTX 4070"], image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400" },
-      { id: 47, brand: "ASUS", model: "ROG Strix G16", category: "laptop", price: 149990, year: 2024, rating: 4.6, ram: 16, storage: 1024, screen: 16, battery: 8, processor: "Core i7-14650HX", camera: "720p", cameraMp: 720, weight: 2.5, features: ["Wi-Fi 6E", "RTX 4060"], image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400" },
-      
-      { id: 48, brand: "Lenovo", model: "ThinkPad X1 Carbon Gen 12", category: "laptop", price: 179990, year: 2024, rating: 4.8, ram: 16, storage: 512, screen: 14, battery: 12, processor: "Core Ultra 7", camera: "1080p", cameraMp: 1080, weight: 1.12, features: ["Wi-Fi 6E", "4G LTE"], image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400" },
-      { id: 49, brand: "Lenovo", model: "Yoga Slim 7i", category: "laptop", price: 94990, year: 2024, rating: 4.5, ram: 16, storage: 512, screen: 14, battery: 14, processor: "Core Ultra 5", camera: "1080p", cameraMp: 1080, weight: 1.45, features: ["Wi-Fi 6E", "OLED"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 50, brand: "Lenovo", model: "Legion Pro 7i", category: "laptop", price: 219990, year: 2024, rating: 4.8, ram: 32, storage: 1024, screen: 16, battery: 8, processor: "Core i9-14900HX", camera: "1080p", cameraMp: 1080, weight: 2.5, features: ["Wi-Fi 7", "RTX 4090"], image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400" },
-      { id: 51, brand: "Lenovo", model: "IdeaPad Slim 3", category: "laptop", price: 49990, year: 2024, rating: 4.2, ram: 8, storage: 256, screen: 15.6, battery: 11, processor: "Ryzen 5 7530U", camera: "720p", cameraMp: 720, weight: 1.63, features: ["Wi-Fi 6", "FHD"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      
-      { id: 52, brand: "HP", model: "Spectre x360 14", category: "laptop", price: 139990, year: 2024, rating: 4.6, ram: 16, storage: 512, screen: 14, battery: 13, processor: "Core Ultra 7", camera: "1080p", cameraMp: 1080, weight: 1.39, features: ["Wi-Fi 6E", "OLED", "2-в-1"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 53, brand: "HP", model: "Envy 16", category: "laptop", price: 119990, year: 2024, rating: 4.5, ram: 16, storage: 1024, screen: 16, battery: 12, processor: "Core i7-13700H", camera: "1080p", cameraMp: 1080, weight: 2.1, features: ["Wi-Fi 6E", "RTX 4060"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 54, brand: "HP", model: "Pavilion 15", category: "laptop", price: 64990, year: 2024, rating: 4.2, ram: 8, storage: 512, screen: 15.6, battery: 10, processor: "Core i5-1335U", camera: "720p", cameraMp: 720, weight: 1.75, features: ["Wi-Fi 6", "IPS"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      
-      { id: 55, brand: "Dell", model: "XPS 13 Plus", category: "laptop", price: 149990, year: 2024, rating: 4.7, ram: 16, storage: 512, screen: 13.4, battery: 12, processor: "Core Ultra 7", camera: "1080p", cameraMp: 1080, weight: 1.26, features: ["Wi-Fi 6E", "OLED"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 56, brand: "Dell", model: "Inspiron 14", category: "laptop", price: 69990, year: 2024, rating: 4.3, ram: 16, storage: 512, screen: 14, battery: 11, processor: "Core i5-1335U", camera: "720p", cameraMp: 720, weight: 1.54, features: ["Wi-Fi 6", "FHD"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
+const RANKS  = ['Immortal','Divine','Ancient','Legend','Archon','Crusader','Guardian','Herald'];
+const RANKS_RU = { Immortal:'╨в╨╕╤В╨░╨╜', Divine:'╨С╨╛╨╢╨╡╤Б╤В╨▓╨╛', Ancient:'╨Т╨╗╨░╤Б╤В╨╡╨╗╨╕╨╜', Legend:'╨Ы╨╡╨│╨╡╨╜╨┤╨░',
+                   Archon:'╨У╨╡╤А╨╛╨╣', Crusader:'╨а╤Л╤Ж╨░╤А╤М', Guardian:'╨б╤В╤А╨░╨╢', Herald:'╨а╨╡╨║╤А╤Г╤В' };
+const COLORS = { Immortal:'#ff5a4a', Divine:'#b06ae0', Ancient:'#66c7e8', Legend:'#d8e6e8',
+                 Archon:'#e6c15a', Crusader:'#cfd2d6', Guardian:'#c08040', Herald:'#9a8f85' };
+/* ╨Т╨╡╤А╤Е╨╜╨╕╨╡ ╨│╤А╨░╨╜╨╕╤Ж╤Л ╨▓╤А╨╡╨╝╨╡╨╜╨╕ ╨┤╨╗╤П Immortal тАж Guardian; ╨▓╤Б╤С ╨╝╨╡╨┤╨╗╨╡╨╜╨╜╨╡╨╡ ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╣ ╨│╤А╨░╨╜╨╕╤Ж╤Л тАФ Herald (╨а╨╡╨║╤А╤Г╤В).
+   ╨Т ╨▒╨░╨╖╨╛╨▓╨╛╨╝ ╨▓╨░╤А╨╕╨░╨╜╤В╨╡ ╨а╨╡╨║╤А╤Г╤В ╨╜╨░╤З╨╕╨╜╨░╨╡╤В╤Б╤П ╤Б 5 ╤Б╨╡╨║╤Г╨╜╨┤. */
+const LIMITS = {
+  1:[1.25,1.6,2.0,2.5,3.25,4.0,5.0],
+  2:[1.65,2.1,2.65,3.3,4.25,5.25,6.5],
+  3:[2.05,2.65,3.3,4.1,5.25,6.5,8.0]
+};
 
-      // === НОУТБУКИ: Huawei / Другие ===
-      { id: 57, brand: "Huawei", model: "MateBook X Pro 2024", category: "laptop", price: 149990, year: 2024, rating: 4.6, ram: 16, storage: 1024, screen: 14.2, battery: 14, processor: "Core Ultra 7", camera: "1080p", cameraMp: 1080, weight: 1.26, features: ["Wi-Fi 6E", "3K OLED"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 58, brand: "Huawei", model: "MateBook 14s", category: "laptop", price: 94990, year: 2024, rating: 4.4, ram: 16, storage: 512, screen: 14.2, battery: 13, processor: "Core i5-13500H", camera: "1080p", cameraMp: 1080, weight: 1.43, features: ["Wi-Fi 6", "2.5K"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 59, brand: "Honor", model: "MagicBook X14 Pro", category: "laptop", price: 64990, year: 2024, rating: 4.3, ram: 16, storage: 512, screen: 14, battery: 12, processor: "Core i5-13420H", camera: "720p", cameraMp: 720, weight: 1.4, features: ["Wi-Fi 6", "FHD IPS"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 60, brand: "Xiaomi", model: "Book Pro 14", category: "laptop", price: 84990, year: 2024, rating: 4.4, ram: 16, storage: 512, screen: 14, battery: 12, processor: "Core Ultra 5", camera: "1080p", cameraMp: 1080, weight: 1.4, features: ["Wi-Fi 6E", "2.8K OLED"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
+/* ╨Ш╨║╨╛╨╜╨║╨╕ ╤А╨░╨╜╨│╨╛╨▓ Dota 2: Herald = 1 ... Immortal = 8.
+   ╨Я╤А╨╛╨▒╤Г╨╡╨╝ ╨╜╨╡╤Б╨║╨╛╨╗╤М╨║╨╛ ╨░╨┤╤А╨╡╤Б╨╛╨▓, ╨╡╤Б╨╗╨╕ ╨╜╨╕ ╨╛╨┤╨╕╨╜ ╨╜╨╡ ╨╖╨░╨│╤А╤Г╨╖╨╕╨╗╤Б╤П тАФ ╤А╨╕╤Б╤Г╨╡╨╝ SVG-╨╝╨╡╨┤╨░╨╗╤М. */
+const rankTier = rank => 8 - RANKS.indexOf(rank);
+const rankUrls = rank => {
+  const n = rankTier(rank);
+  return [
+    `https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_${n}.png`,
+    `${CDN}rank_icons/rank_icon_${n}.png`
+  ];
+};
 
-      // === УМНЫЕ ЧАСЫ: Apple / Samsung ===
-      { id: 61, brand: "Apple", model: "Watch Series 9", category: "watch", price: 42990, year: 2023, rating: 4.7, ram: 1, storage: 64, screen: 1.9, battery: 1.5, processor: "S9 SiP", camera: "Нет", cameraMp: 0, features: ["ЭКГ", "SpO2", "GPS"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      { id: 62, brand: "Apple", model: "Watch Series 10", category: "watch", price: 49990, year: 2024, rating: 4.8, ram: 1, storage: 64, screen: 2.0, battery: 1.8, processor: "S10 SiP", camera: "Нет", cameraMp: 0, features: ["ЭКГ", "SpO2", "GPS", "Температура"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      { id: 63, brand: "Apple", model: "Watch Ultra 2", category: "watch", price: 79990, year: 2023, rating: 4.8, ram: 1, storage: 64, screen: 2.0, battery: 2.5, processor: "S9 SiP", camera: "Нет", cameraMp: 0, features: ["ЭКГ", "SpO2", "GPS + Cellular", "Дайвинг"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      { id: 64, brand: "Apple", model: "Watch Ultra 3", category: "watch", price: 89990, year: 2024, rating: 4.9, ram: 1, storage: 64, screen: 2.1, battery: 3.0, processor: "S10 SiP", camera: "Нет", cameraMp: 0, features: ["ЭКГ", "SpO2", "GPS + Cellular", "Дайвинг 40м"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      
-      { id: 65, brand: "Samsung", model: "Galaxy Watch 6", category: "watch", price: 29990, year: 2023, rating: 4.4, ram: 1.5, storage: 16, screen: 1.5, battery: 1.2, processor: "Exynos W930", camera: "Нет", cameraMp: 0, features: ["BIA", "Температура", "GPS"], image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" },
-      { id: 66, brand: "Samsung", model: "Galaxy Watch 7", category: "watch", price: 34990, year: 2024, rating: 4.5, ram: 2, storage: 32, screen: 1.5, battery: 1.4, processor: "Exynos W1000", camera: "Нет", cameraMp: 0, features: ["BIA", "Температура", "GPS", "AI"], image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" },
-      { id: 67, brand: "Samsung", model: "Galaxy Watch Ultra", category: "watch", price: 54990, year: 2024, rating: 4.6, ram: 2, storage: 32, screen: 1.5, battery: 2.0, processor: "Exynos W1000", camera: "Нет", cameraMp: 0, features: ["BIA", "Температура", "Дайвинг", "GPS"], image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" },
+/* ╨д╨╕╨╖╨╕╤З╨╡╤Б╨║╨░╤П ╨║╨╗╨░╨▓╨╕╤И╨░ тЖТ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨╗╨░╤В╨╕╨╜╨╕╤Ж╤Л (╨╖╨░╨┐╨░╤Б╨╜╨╛╨╣ ╨▓╨░╤А╨╕╨░╨╜╤В, ╨╡╤Б╨╗╨╕ ╨╜╨╡╤В event.code) */
+const RU2EN = {'╨Щ':'Q','╨ж':'W','╨г':'E','╨Ъ':'R','╨Х':'T','╨Э':'Y','╨У':'U','╨и':'I','╨й':'O','╨Ч':'P','╨е':'[','╨к':']',
+  '╨д':'A','╨л':'S','╨Т':'D','╨Р':'F','╨Я':'G','╨а':'H','╨Ю':'J','╨Ы':'K','╨Ф':'L','╨Ц':';','╨н':"'",
+  '╨п':'Z','╨з':'X','╨б':'C','╨Ь':'V','╨Ш':'B','╨в':'N','╨м':'M','╨С':',','╨о':'.','╨Б':'`'};
 
-      // === УМНЫЕ ЧАСЫ: Garmin / Huawei / Xiaomi ===
-      { id: 68, brand: "Garmin", model: "Fenix 8", category: "watch", price: 89990, year: 2024, rating: 4.8, ram: 1, storage: 32, screen: 1.4, battery: 21, processor: "Garmin", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "Дайвинг", "Солнечная"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 69, brand: "Garmin", model: "Forerunner 965", category: "watch", price: 59990, year: 2024, rating: 4.7, ram: 1, storage: 32, screen: 1.4, battery: 15, processor: "Garmin", camera: "Нет", cameraMp: 0, features: ["GPS", "AMOLED", "Бег"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 70, brand: "Garmin", model: "Venu 3", category: "watch", price: 44990, year: 2024, rating: 4.6, ram: 1, storage: 16, screen: 1.4, battery: 10, processor: "Garmin", camera: "Нет", cameraMp: 0, features: ["GPS", "AMOLED", "Здоровье"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      
-      { id: 71, brand: "Huawei", model: "Watch GT 5 Pro", category: "watch", price: 34990, year: 2024, rating: 4.6, ram: 1, storage: 32, screen: 1.43, battery: 14, processor: "Kirin A2", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "ЭКГ", "Дайвинг"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 72, brand: "Huawei", model: "Watch GT 4", category: "watch", price: 24990, year: 2023, rating: 4.5, ram: 1, storage: 32, screen: 1.43, battery: 14, processor: "Kirin A1", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "100+ режимов"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 73, brand: "Huawei", model: "Watch Fit 3", category: "watch", price: 14990, year: 2024, rating: 4.3, ram: 1, storage: 8, screen: 1.82, battery: 10, processor: "Kirin", camera: "Нет", cameraMp: 0, features: ["GPS", "AMOLED", "Лёгкие"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      
-      { id: 74, brand: "Xiaomi", model: "Watch S3", category: "watch", price: 19990, year: 2024, rating: 4.4, ram: 1, storage: 32, screen: 1.43, battery: 15, processor: "W5+", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "HyperOS"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 75, brand: "Xiaomi", model: "Watch 2 Pro", category: "watch", price: 19990, year: 2024, rating: 4.3, ram: 1, storage: 32, screen: 1.43, battery: 2, processor: "W5+", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "Wear OS"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 76, brand: "Xiaomi", model: "Smart Band 8 Pro", category: "watch", price: 5990, year: 2024, rating: 4.2, ram: 0.5, storage: 4, screen: 1.74, battery: 14, processor: "RTOS", camera: "Нет", cameraMp: 0, features: ["GPS", "AMOLED", "Бюджет"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+/* ================= STATE ================= */
+const DEFAULT_BINDS = { w:'W', manta:'X', all:'2', next:'TAB' };
+let binds = Object.assign({}, DEFAULT_BINDS, JSON.parse(localStorage.getItem('aw_binds') || 'null') || {});
+let records = JSON.parse(localStorage.getItem('aw_records') || '{}');
 
-      // === УМНЫЕ ЧАСЫ: OnePlus / Realme / Honor ===
-      { id: 77, brand: "OnePlus", model: "Watch 3", category: "watch", price: 29990, year: 2024, rating: 4.4, ram: 1, storage: 32, screen: 1.43, battery: 2.0, processor: "W5", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "Wear OS", "100+ режимов"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      { id: 78, brand: "OnePlus", model: "Watch 2", category: "watch", price: 24990, year: 2024, rating: 4.2, ram: 1, storage: 32, screen: 1.43, battery: 1.7, processor: "W5", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "Fast Charge"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      { id: 79, brand: "Realme", model: "Watch S2", category: "watch", price: 14990, year: 2024, rating: 4.1, ram: 1, storage: 16, screen: 1.43, battery: 1.5, processor: "RTOS", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "100+ режимов"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 80, brand: "Honor", model: "Watch 4 Pro", category: "watch", price: 39990, year: 2024, rating: 4.5, ram: 1, storage: 32, screen: 1.5, battery: 4.5, processor: "Kirin", camera: "Нет", cameraMp: 0, features: ["ЭКГ", "GPS", "NFC", "eSIM"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+/* ╨б╨▓╨╛╨╕ ╨┐╤А╨╛╨║╨░╤Б╤В╤Л: [{id, name, seq}] тАФ ╤Е╤А╨░╨╜╤П╤В╤Б╤П ╨▓ localStorage */
+let custom = [];
+try { custom = JSON.parse(localStorage.getItem('aw_custom') || '[]') || []; } catch(_) { custom = []; }
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+/* ╨Я╨╛╤А╨╛╨│╨╕ ╨┤╨╗╤П ╤Б╨▓╨╛╨╡╨│╨╛ ╨┐╤А╨╛╨║╨░╤Б╤В╨░ тАФ ╨║╨░╨║ ╤Г ╨▓╨░╤А╨╕╨░╨╜╤В╨░ 1, ╨┐╤А╨╛╨┐╨╛╤А╤Ж╨╕╨╛╨╜╨░╨╗╤М╨╜╨╛ ╤З╨╕╤Б╨╗╤Г ╨╜╨░╨╢╨░╤В╨╕╨╣ (╨▓ ╨▓╨░╤А╨╕╨░╨╜╤В╨╡ 1 ╨╕╤Е 9) */
+function registerCustom(c){
+  VARIANTS[c.id] = { name:c.name, seq:c.seq, custom:true };
+  const k = c.seq.length / VARIANTS[1].seq.length;
+  LIMITS[c.id] = LIMITS[1].map(x => +(x * k).toFixed(2));
+}
+custom.forEach(registerCustom);
+const variantIds = () => [1, 2, 3, ...custom.map(c => c.id)];
+let variant = 1, ratingVariant = 1, running = false, finished = false, step = 0, t0 = 0, tint = null, binding = null;
+let hero = 0, cooldown = [new Set(), new Set()], failTimer = null;   // hero 0/1 тАФ ╨╛╤А╨╕╨│╨╕╨╜╨░╨╗/╨║╨╗╨╛╨╜ (TAB ╨┐╨╡╤А╨╡╨║╨╗╤О╤З╨░╨╡╤В)
 
-      // === НОВИНКИ 2025 ГОДА ===
-      { id: 81, brand: "Apple", model: "iPhone 17 Pro Max", category: "smartphone", price: 179990, year: 2025, rating: 4.9, ram: 12, storage: 512, screen: 6.9, battery: 4800, processor: "A19 Pro", camera: "48+48+48 Мп", cameraMp: 48, features: ["5G", "NFC", "Титан", "8х зум"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 82, brand: "Apple", model: "iPhone 17", category: "smartphone", price: 99990, year: 2025, rating: 4.8, ram: 8, storage: 256, screen: 6.1, battery: 3800, processor: "A19", camera: "48+12 Мп", cameraMp: 48, features: ["5G", "NFC", "Action Button"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 83, brand: "Samsung", model: "Galaxy S25 Ultra", category: "smartphone", price: 149990, year: 2025, rating: 4.9, ram: 16, storage: 512, screen: 6.9, battery: 5200, processor: "Snapdragon 8 Gen 4", camera: "200+50+50+10 Мп", cameraMp: 200, features: ["5G", "NFC", "S Pen", "AI"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 84, brand: "Xiaomi", model: "15 Ultra", category: "smartphone", price: 139990, year: 2025, rating: 4.8, ram: 16, storage: 512, screen: 6.73, battery: 5500, processor: "Snapdragon 8 Elite", camera: "4x50 Мп Leica", cameraMp: 50, features: ["5G", "NFC", "IP68", "150W"], image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
-      { id: 85, brand: "Google", model: "Pixel 10 Pro", category: "smartphone", price: 129990, year: 2025, rating: 4.8, ram: 16, storage: 512, screen: 6.5, battery: 5000, processor: "Tensor G5", camera: "50+48+48 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68", "AI"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 86, brand: "OnePlus", model: "14 Pro", category: "smartphone", price: 109990, year: 2025, rating: 4.7, ram: 16, storage: 512, screen: 6.82, battery: 6200, processor: "Snapdragon 8 Elite", camera: "50+50+64 Мп", cameraMp: 50, features: ["5G", "NFC", "150W"], image: "https://images.unsplash.com/photo-1660463975891-5f69a1999fea?w=400" },
-      { id: 87, brand: "Huawei", model: "Pura 80 Ultra", category: "smartphone", price: 129990, year: 2025, rating: 4.7, ram: 16, storage: 512, screen: 6.9, battery: 5500, processor: "Kirin 9100", camera: "50+50+50 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400" },
-      { id: 88, brand: "Honor", model: "Magic 8 Pro", category: "smartphone", price: 104990, year: 2025, rating: 4.7, ram: 16, storage: 512, screen: 6.9, battery: 5800, processor: "Snapdragon 8 Elite", camera: "50+200+50 Мп", cameraMp: 50, features: ["5G", "NFC", "IP68"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
+/* ╨Я╨╛╤А╨╛╨│╨╕ ╨╝╨╛╨│╨╗╨╕ ╨╕╨╖╨╝╨╡╨╜╨╕╤В╤М╤Б╤П тАФ ╨┐╨╡╤А╨╡╤Б╤З╨╕╤В╤Л╨▓╨░╨╡╨╝ ╤А╨░╨╜╨│ ╤Б╨╛╤Е╤А╨░╨╜╤С╨╜╨╜╤Л╤Е ╤А╨╡╨║╨╛╤А╨┤╨╛╨▓ ╨┐╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ */
+variantIds().forEach(v=>{ if (records[v]) records[v].rank = getRank(v, records[v].time); });
 
-      // === НОУТБУКИ 2025 ===
-      { id: 89, brand: "Apple", model: "MacBook Air M4", category: "laptop", price: 149990, year: 2025, rating: 4.9, ram: 16, storage: 512, screen: 13.6, battery: 20, processor: "Apple M4", camera: "1080p", cameraMp: 1080, weight: 1.24, features: ["Wi-Fi 7", "Thunderbolt 5"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
-      { id: 90, brand: "Apple", model: "MacBook Pro 14 M4 Max", category: "laptop", price: 349990, year: 2025, rating: 4.9, ram: 36, storage: 1024, screen: 14.2, battery: 18, processor: "Apple M4 Max", camera: "1080p", cameraMp: 1080, weight: 1.6, features: ["Wi-Fi 7", "Mini-LED", "Thunderbolt 5"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
-      { id: 91, brand: "ASUS", model: "Zenbook 15 OLED", category: "laptop", price: 129990, year: 2025, rating: 4.7, ram: 32, storage: 1024, screen: 15.6, battery: 16, processor: "Core Ultra 9", camera: "1080p", cameraMp: 1080, weight: 1.45, features: ["Wi-Fi 7", "OLED", "RTX 4060"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 92, brand: "Lenovo", model: "ThinkPad X1 Carbon Gen 13", category: "laptop", price: 199990, year: 2025, rating: 4.8, ram: 32, storage: 1024, screen: 14, battery: 14, processor: "Core Ultra 9", camera: "4K IR", cameraMp: 2160, weight: 1.1, features: ["Wi-Fi 7", "5G", "AI"], image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400" },
-      { id: 93, brand: "Dell", model: "XPS 14", category: "laptop", price: 179990, year: 2025, rating: 4.7, ram: 32, storage: 1024, screen: 14.5, battery: 14, processor: "Core Ultra 9", camera: "1080p", cameraMp: 1080, weight: 1.38, features: ["Wi-Fi 7", "OLED", "RTX 4050"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
-      { id: 94, brand: "HP", model: "Spectre x360 16", category: "laptop", price: 169990, year: 2025, rating: 4.6, ram: 32, storage: 1024, screen: 16, battery: 15, processor: "Core Ultra 9", camera: "1080p", cameraMp: 1080, weight: 1.5, features: ["Wi-Fi 7", "OLED", "2-в-1"], image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400" },
+const $ = id => document.getElementById(id);
+const pretty = k => /^MOUSE\d$/.test(k) ? 'Mouse ' + k.slice(5) : k;   // MOUSE4 тЖТ ┬лMouse 4┬╗
+const label = t => pretty(({Q:'Q',W:binds.w,E:'E',R:'R',MANTA:binds.manta,ALL:binds.all,NEXT:binds.next,RMB:'╨Я╨Ъ╨Ь'})[t]);
 
-      // === ЧАСЫ 2025 ===
-      { id: 95, brand: "Apple", model: "Watch Series 11", category: "watch", price: 54990, year: 2025, rating: 4.8, ram: 2, storage: 128, screen: 2.1, battery: 2.0, processor: "S11 SiP", camera: "Нет", cameraMp: 0, features: ["ЭКГ", "SpO2", "GPS", "Давление"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      { id: 96, brand: "Samsung", model: "Galaxy Watch 8", category: "watch", price: 39990, year: 2025, rating: 4.6, ram: 2, storage: 32, screen: 1.5, battery: 1.6, processor: "Exynos W2000", camera: "Нет", cameraMp: 0, features: ["BIA", "Температура", "GPS", "AI"], image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" },
-      { id: 97, brand: "Garmin", model: "Fenix 9", category: "watch", price: 99990, year: 2025, rating: 4.9, ram: 2, storage: 64, screen: 1.5, battery: 28, processor: "Garmin Gen 2", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "Дайвинг", "Солнечная Pro"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 98, brand: "Huawei", model: "Watch GT 6 Pro", category: "watch", price: 39990, year: 2025, rating: 4.7, ram: 2, storage: 32, screen: 1.5, battery: 16, processor: "Kirin A3", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "ЭКГ", "Дайвинг 50м"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+/* ╨Э╨╛╤А╨╝╨░╨╗╨╕╨╖╨░╤Ж╨╕╤П ╨║╨╗╨░╨▓╨╕╤И╨╕ ╨┐╨╛ ╨д╨Ш╨Ч╨Ш╨з╨Х╨б╨Ъ╨Ю╨Ь╨г ╨║╨╛╨┤╤Г тАФ ╨╜╨╡ ╨╖╨░╨▓╨╕╤Б╨╕╤В ╨╛╤В ╤А╨░╤Б╨║╨╗╨░╨┤╨║╨╕ (RU/EN) */
+function normKey(e){
+  const c = e.code;
+  if (c){
+    if (/^Key[A-Z]$/.test(c)) return c.slice(3);              // KeyQ тЖТ Q (╨╕ ┬л╨╣┬╗ ╨╜╨░ ╤А╤Г╤Б╤Б╨║╨╛╨╣)
+    if (/^Digit[0-9]$/.test(c)) return c.slice(5);            // Digit2 тЖТ 2
+    if (/^Numpad[0-9]$/.test(c)) return 'NUM' + c.slice(6);   // Numpad2 тЖТ NUM2
+    if (c === 'Tab') return 'TAB';
+    if (c === 'Space') return 'SPACE';
+    const m = c.match(/^(Shift|Control|Alt|Meta)(Left|Right)$/);
+    if (m) return (m[2] === 'Left' ? 'L ' : 'R ') + m[1].toUpperCase();
+    return c.toUpperCase();
+  }
+  // ╨╖╨░╨┐╨░╤Б╨╜╨╛╨╣ ╨▓╨░╤А╨╕╨░╨╜╤В ╨┤╨╗╤П ╨▒╤А╨░╤Г╨╖╨╡╤А╨╛╨▓ ╨▒╨╡╨╖ event.code
+  if (e.key === 'Tab') return 'TAB';
+  if (e.key === ' ') return 'SPACE';
+  const k = e.key.toUpperCase();
+  return RU2EN[k] || k;
+}
 
-      // === НОВИНКИ 2026 ГОДА ===
-      { id: 99, brand: "Apple", model: "iPhone 18 Pro Max", category: "smartphone", price: 199990, year: 2026, rating: 5.0, ram: 12, storage: 1024, screen: 7.0, battery: 5000, processor: "A20 Pro", camera: "48+48+48+12 Мп", cameraMp: 48, features: ["5G Advanced", "NFC", "Титан", "10х зум"], image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" },
-      { id: 100, brand: "Samsung", model: "Galaxy S26 Ultra", category: "smartphone", price: 169990, year: 2026, rating: 4.9, ram: 16, storage: 1024, screen: 7.0, battery: 5500, processor: "Snapdragon 8 Gen 5", camera: "200+64+50+12 Мп", cameraMp: 200, features: ["5G Advanced", "NFC", "S Pen", "AI Pro"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 101, brand: "Xiaomi", model: "16 Ultra", category: "smartphone", price: 159990, year: 2026, rating: 4.9, ram: 24, storage: 1024, screen: 6.8, battery: 6000, processor: "Snapdragon 8 Gen 5", camera: "4x50 Мп Leica Gen 2", cameraMp: 50, features: ["5G Advanced", "NFC", "IP69", "200W"], image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
-      { id: 102, brand: "Google", model: "Pixel 11 Pro", category: "smartphone", price: 149990, year: 2026, rating: 4.8, ram: 16, storage: 512, screen: 6.7, battery: 5200, processor: "Tensor G6", camera: "50+48+48 Мп", cameraMp: 50, features: ["5G Advanced", "NFC", "IP68", "AI Ultra"], image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" },
-      { id: 103, brand: "OnePlus", model: "15 Pro", category: "smartphone", price: 124990, year: 2026, rating: 4.8, ram: 24, storage: 1024, screen: 6.9, battery: 6500, processor: "Snapdragon 8 Gen 5", camera: "50+50+64 Мп", cameraMp: 50, features: ["5G Advanced", "NFC", "200W"], image: "https://images.unsplash.com/photo-1660463975891-5f69a1999fea?w=400" },
-      
-      { id: 104, brand: "Apple", model: "MacBook Pro 16 M5", category: "laptop", price: 399990, year: 2026, rating: 5.0, ram: 48, storage: 2048, screen: 16.2, battery: 24, processor: "Apple M5 Max", camera: "4K", cameraMp: 2160, weight: 2.2, features: ["Wi-Fi 8", "Mini-LED Pro", "Thunderbolt 6"], image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" },
-      { id: 105, brand: "ASUS", model: "ROG Zephyrus G16", category: "laptop", price: 249990, year: 2026, rating: 4.8, ram: 64, storage: 2048, screen: 16, battery: 12, processor: "Ryzen 11 9950HX", camera: "4K", cameraMp: 2160, weight: 1.8, features: ["Wi-Fi 8", "RTX 5080", "OLED 240Hz"], image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400" },
-      { id: 106, brand: "Lenovo", model: "Legion Pro 8i", category: "laptop", price: 299990, year: 2026, rating: 4.9, ram: 64, storage: 4096, screen: 18, battery: 10, processor: "Core i9-15980HX", camera: "4K IR", cameraMp: 2160, weight: 2.8, features: ["Wi-Fi 8", "RTX 5090", "Mini-LED"], image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400" },
-      
-      { id: 107, brand: "Apple", model: "Watch Ultra 4", category: "watch", price: 99990, year: 2026, rating: 5.0, ram: 2, storage: 128, screen: 2.2, battery: 3.5, processor: "S12 SiP", camera: "Нет", cameraMp: 0, features: ["ЭКГ", "SpO2", "GPS + Cellular", "Дайвинг 60м"], image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
-      { id: 108, brand: "Samsung", model: "Galaxy Watch 9 Ultra", category: "watch", price: 64990, year: 2026, rating: 4.8, ram: 3, storage: 64, screen: 1.6, battery: 2.5, processor: "Exynos W3000", camera: "Нет", cameraMp: 0, features: ["BIA Pro", "Температура", "Дайвинг", "AI Health"], image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" },
-      { id: 109, brand: "Garmin", model: "Fenix 10 Pro", category: "watch", price: 119990, year: 2026, rating: 5.0, ram: 2, storage: 128, screen: 1.6, battery: 35, processor: "Garmin Gen 3", camera: "Нет", cameraMp: 0, features: ["GPS Triple", "NFC", "Дайвинг 100м", "Солнечная Max"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-      { id: 110, brand: "Huawei", model: "Watch Ultimate 2", category: "watch", price: 89990, year: 2026, rating: 4.8, ram: 2, storage: 64, screen: 1.5, battery: 18, processor: "Kirin A4", camera: "Нет", cameraMp: 0, features: ["GPS", "NFC", "ЭКГ", "Дайвинг 100м", "Спутник"], image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" }
-    ];
+function makeIcon(tok, size){
+  const d = document.createElement('div');
+  d.className = 'icon'; d.style.background = ICONS[tok].g;
+  if (size) { d.style.width = size+'px'; d.style.height = size+'px'; }
+  if (ICONS[tok].img) d.innerHTML = `<img src="${CDN}${ICONS[tok].img}" onerror="this.remove()">`;
+  if (ICONS[tok].svg) d.innerHTML += ICONS[tok].svg;
+  return d;
+}
 
-    let compareList = JSON.parse(localStorage.getItem('compareList')) || [];
-    const listEl = document.getElementById('device-list');
-    const priceSlider = document.getElementById('filter-price');
-    const priceVal = document.getElementById('price-val');
-    const comparePanel = document.getElementById('compare-panel');
-    const compareCount = document.getElementById('count');
+/* ╨Ъ╨░╤А╤В╨╕╨╜╨║╨░ ╤А╨░╨╜╨│╨░ ╤Б ╨╖╨░╨┐╨░╤Б╨╜╨╛╨╣ SVG-╨╝╨╡╨┤╨░╨╗╤М╤О */
+function rankImg(rank, size){
+  const wrap = document.createElement('div');
+  wrap.className = 'rank-img';
+  wrap.style.width = size + 'px'; wrap.style.height = size + 'px';
+  const urls = rankUrls(rank);
+  let i = 0;
+  const img = new Image();
+  img.alt = rank; img.title = rank;
+  img.onerror = () => {
+    i++;
+    if (i < urls.length) img.src = urls[i];
+    else wrap.innerHTML = medalSVG(COLORS[rank]);
+  };
+  img.src = urls[0];
+  wrap.appendChild(img);
+  return wrap;
+}
 
-    function init() {
-      renderList();
-      updatePanel();
-      priceSlider.addEventListener('input', (e) => {
-        priceVal.textContent = Number(e.target.value).toLocaleString('ru-RU') + ' ₽';
-        renderList();
-      });
-      document.querySelectorAll('.controls select').forEach(el => el.addEventListener('change', renderList));
+/* ================= RENDER ================= */
+function renderControls(){
+  const box = $('ctrlList'); box.innerHTML = '';
+  ['Q','W','E','R','MANTA','ALL','NEXT','RMB'].forEach(t=>{
+    const row = document.createElement('div'); row.className = 'ctrl-row';
+    row.appendChild(makeIcon(t));
+    const s = document.createElement('span'); s.textContent = `${label(t)} тАФ ${NAMES[t]}`;
+    row.appendChild(s); box.appendChild(row);
+  });
+}
+function renderKeybinds(){
+  const box = $('kbList'); box.innerHTML = '';
+  [['w','Magnetic Field (W)'],['manta','Manta Style'],['all','╨Т╤Б╨╡ ╤Б╤Г╤Й╨╡╤Б╤В╨▓╨░'],['next','╨б╨╗╨╡╨┤. ╤Б╤Г╤Й╨╡╤Б╤В╨▓╨╛']].forEach(([k,name])=>{
+    const row = document.createElement('div'); row.className = 'kb-row';
+    row.innerHTML = `<label>${name}</label>`;
+    const b = document.createElement('button');
+    b.className = 'mbtn kb-btn' + (binding===k ? ' listening' : '');
+    b.textContent = binding===k ? '╨Ъ╨╗╨░╨▓╨╕╤И╤ГтАж' : pretty(binds[k]);
+    b.onclick = ()=>{ binding = k; renderKeybinds(); };
+    row.appendChild(b); box.appendChild(row);
+  });
+}
+function renderPills(){
+  const box = $('pills'); box.innerHTML = '';
+  variantIds().forEach(v=>{
+    const b = document.createElement('button');
+    b.className = 'mbtn small pill' + (v===variant?' active':'');
+    b.textContent = VARIANTS[v].custom ? VARIANTS[v].name : '╨Т╨░╤А╨╕╨░╨╜╤В ' + v;
+    b.onclick = ()=> selectVariant(v);
+    box.appendChild(b);
+  });
+}
+function renderRight(){
+  const box = $('pcList'); box.innerHTML = '';
+  variantIds().forEach(v=>{
+    const V = VARIANTS[v];
+    const it = document.createElement('div');
+    it.className = 'pc-item' + (v===variant?' active':'');
+    const iconTok = V.custom ? (V.seq.find(t=>ABILITY[t]) || 'RMB') : (v===3?'MANTA':(v===2?'W':'R'));
+    it.appendChild(makeIcon(iconTok, 40));
+    const d = document.createElement('div');
+    d.style.flex = '1';
+    d.innerHTML = `<b>${esc(V.name)}</b><div class="combo">${V.seq.map(label).join(' ')}</div>`;
+    it.appendChild(d);
+    if (V.custom){
+      const del = document.createElement('button');
+      del.className = 'mbtn small'; del.textContent = 'тЬХ'; del.title = '╨г╨┤╨░╨╗╨╕╤В╤М ╨┐╤А╨╛╨║╨░╤Б╤В';
+      del.onclick = ev => { ev.stopPropagation(); deleteCustom(v); };
+      it.appendChild(del);
     }
-
-    function renderList() {
-      const cat = document.getElementById('filter-category').value;
-      const brand = document.getElementById('filter-brand').value;
-      const maxPrice = Number(priceSlider.value);
-      const minRam = document.getElementById('filter-ram').value;
-      const sortType = document.getElementById('sort').value;
-
-      let filtered = devices.filter(d => {
-        if (cat !== 'all' && d.category !== cat) return false;
-        if (brand !== 'all' && d.brand !== brand) return false;
-        if (d.price > maxPrice) return false;
-        if (minRam !== 'all' && d.ram < Number(minRam)) return false;
-        return true;
-      });
-
-      filtered.sort((a, b) => {
-        if (sortType === 'price-asc') return a.price - b.price;
-        if (sortType === 'price-desc') return b.price - a.price;
-        if (sortType === 'year') return b.year - a.year;
-        if (sortType === 'rating') return b.rating - a.rating;
-        return 0;
-      });
-
-      const header = `<div class="list-header">
-  <div>Фото</div>
-  <div>Модель</div>
-  <div>Рейтинг</div>
-  <div>Цена</div>
-  <div>Где купить</div>
-  <div>Действие</div>
-</div>`;
-
-      listEl.innerHTML = header + filtered.map(d => `
-        <div class="device-row" data-id="${d.id}">
-          <div class="row-img">
-            <img src="${d.image}" alt="${d.model}">
-          </div>
-          <div class="row-info">
-            <div class="row-title">${d.model}</div>
-            <div class="row-brand">${d.brand} • ${d.year}</div>
-            <div class="row-specs">${d.processor} • ${d.ram} ГБ ОЗУ • ${d.screen}" • ${d.battery} ${d.category === 'smartphone' ? 'мАч' : 'ч'}</div>
-          </div>
-          <div class="row-meta">
-            <div class="row-rating">${d.rating} ★</div>
-            <div class="row-price">${d.price.toLocaleString('ru-RU')} ₽</div>
-          </div>
-          <div class="buy-links">
-            <a href="https://www.dns-shop.ru/search/?q=${encodeURIComponent(d.model)}" target="_blank" rel="nofollow noopener" class="buy-btn dns">DNS</a>
-            <a href="https://www.citilink.ru/search/?text=${encodeURIComponent(d.model)}" target="_blank" rel="nofollow noopener" class="buy-btn citilink">Ситилинк</a>
-            <a href="https://market.yandex.ru/search?text=${encodeURIComponent(d.model)}" target="_blank" rel="nofollow noopener" class="buy-btn ymarket">Я.Маркет</a>
-            <a href="https://www.mvideo.ru/search?query=${encodeURIComponent(d.model)}" target="_blank" rel="nofollow noopener" class="buy-btn mvideo">М.Видео</a>
-          </div>
-          <div class="row-action">
-            <button class="btn-compare ${compareList.includes(d.id) ? 'active' : ''}" onclick="toggleCompare(${d.id}); return false;">
-              ${compareList.includes(d.id) ? '✓' : '📊'}
-            </button>
-          </div>
-        </div>
-      `).join('');
+    it.onclick = ()=> selectVariant(v);
+    box.appendChild(it);
+  });
+}
+function renderSeq(){
+  const box = $('seq'); box.innerHTML = '';
+  VARIANTS[variant].seq.forEach((t,i)=>{
+    const c = document.createElement('div');
+    c.className = 'chip' + (i<step?' done':(i===step&&running?' current':''));
+    c.id = 'chip-'+i; c.textContent = label(t);
+    box.appendChild(c);
+  });
+}
+function renderIcons(){
+  const box = $('iconRow'); box.innerHTML = '';
+  const seen = new Set();
+  VARIANTS[variant].seq.forEach(t=>{
+    if (seen.has(t)) return; seen.add(t);
+    const b = document.createElement('button'); b.className = 'ibtn'; b.title = NAMES[t];
+    const ic = makeIcon(t, 64);
+    ic.innerHTML += `<span class="badge">${label(t)}</span>`;
+    b.appendChild(ic);
+    b.onclick = ()=> press(t);
+    box.appendChild(b);
+  });
+}
+function renderRecords(){
+  const box = $('recGrid'); box.innerHTML = '';
+  variantIds().forEach(v=>{
+    const r = records[v];
+    const c = document.createElement('div'); c.className = 'rec-card';
+    c.innerHTML = `<b>${esc(VARIANTS[v].name)}</b>
+      <div class="t">${r ? r.time.toFixed(2)+'s' : 'тАФ'}</div>
+      <div class="r" style="color:${r?COLORS[r.rank]:'#5a4a3a'}">${r ? r.rank : '╨╜╨╡╤В ╨╖╨░╨┐╨╕╤Б╨╕'}</div>`;
+    if (r) c.insertBefore(rankImg(r.rank, 64), c.querySelector('.t'));
+    box.appendChild(c);
+  });
+}
+function rangeText(v, i){
+  const L = LIMITS[v], f = x => x.toFixed(2);
+  if (i === 0) return `╨┤╨╛ ${f(L[0])} ╤Б`;
+  if (i === RANKS.length - 1) return `╨╛╤В ${f(L[L.length-1])} ╤Б`;
+  return `${f(L[i-1])} тАУ ${f(L[i])} ╤Б`;
+}
+function renderRating(){
+  const tabs = $('ratingTabs'); tabs.innerHTML = '';
+  if (!VARIANTS[ratingVariant]) ratingVariant = 1;
+  variantIds().forEach(v=>{
+    const b = document.createElement('button');
+    b.className = 'mbtn small' + (v===ratingVariant?' active':'');
+    b.textContent = VARIANTS[v].custom ? VARIANTS[v].name : '╨Т╨░╤А╨╕╨░╨╜╤В ' + v;
+    b.onclick = ()=>{ ratingVariant = v; renderRating(); };
+    tabs.appendChild(b);
+  });
+  const rec = records[ratingVariant];
+  $('ratingSub').textContent = VARIANTS[ratingVariant].name + ' ┬╖ ' +
+    (rec ? `╨▓╨░╤И ╨╗╤Г╤З╤И╨╕╨╣ ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В: ${rec.time.toFixed(2)} ╤Б тАФ ${rec.rank}` : '╤Г ╨▓╨░╤Б ╨┐╨╛╨║╨░ ╨╜╨╡╤В ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В╨░');
+  const grid = $('rankGrid'); grid.innerHTML = '';
+  RANKS.forEach((rk, i)=>{
+    const card = document.createElement('div');
+    const mine = rec && rec.rank === rk;
+    card.className = 'rank-card' + (mine ? ' mine' : '');
+    if (mine) card.style.borderColor = COLORS[rk];
+    card.appendChild(rankImg(rk, 84));
+    const rest = document.createElement('div');
+    rest.innerHTML = `<div class="nm" style="color:${COLORS[rk]}">${rk}</div>
+      <div class="ru">${RANKS_RU[rk]}</div>
+      <div class="lim">${rangeText(ratingVariant, i)}</div>`;
+    while (rest.firstChild) card.appendChild(rest.firstChild);
+    if (mine){
+      const y = document.createElement('span'); y.className = 'you'; y.textContent = '╨Т╨░╤И ╤А╨░╨╜╨│';
+      card.appendChild(y);
     }
+    grid.appendChild(card);
+  });
+}
+function renderAll(){
+  renderControls(); renderKeybinds(); renderPills(); renderRight(); renderSeq(); renderIcons(); renderRecords(); renderRating();
+  if (!$('pcForm').classList.contains('hidden')){ renderPalette(); renderDraft(); }   // ╨┐╨╛╨┤╨┐╨╕╤Б╨╕ ╨║╨╗╨░╨▓╨╕╤И ╨▓ ╤Д╨╛╤А╨╝╨╡
+}
 
-    function toggleCompare(id) {
-      const idx = compareList.indexOf(id);
-      if (idx === -1) {
-        if (compareList.length >= 5) return alert('Можно сравнить максимум 5 устройств');
-        compareList.push(id);
-      } else {
-        compareList.splice(idx, 1);
-      }
-      localStorage.setItem('compareList', JSON.stringify(compareList));
-      updatePanel();
-      renderList();
+/* ================= GAME ================= */
+function selectVariant(v){
+  if (running) stop();
+  variant = v; ratingVariant = v; finished = false;
+  $('result').classList.add('hidden');
+  $('failMsg').classList.add('hidden');
+  $('startBtn').classList.remove('hidden');
+  renderPills(); renderRight(); renderSeq(); renderIcons(); renderRating();
+}
+function resetAttempt(){
+  step = 0; hero = 0; cooldown = [new Set(), new Set()];
+}
+function start(){
+  resetAttempt(); finished = false; running = true;
+  $('startBtn').classList.add('hidden');
+  $('result').classList.add('hidden');
+  $('failMsg').classList.add('hidden');
+  $('timer').classList.remove('hidden');
+  $('timer').textContent = '0.00';
+  renderSeq();
+  t0 = performance.now();
+  tint = setInterval(()=>{ $('timer').textContent = ((performance.now()-t0)/1000).toFixed(2); }, 47);
+}
+function stop(){
+  running = false; clearInterval(tint);
+  $('timer').classList.add('hidden');
+  $('startBtn').classList.remove('hidden');
+  $('failMsg').classList.add('hidden');
+  resetAttempt(); renderSeq();
+}
+const ABILITY = { Q:1, W:1, E:1, R:1, MANTA:1 };   // ╤Г ╨╜╨╕╤Е ╨╡╤Б╤В╤М ╨╛╤В╨║╨░╤В; ALL / NEXT / RMB тАФ ╨╜╨╡╤В
+
+/* ╨Ю╤И╨╕╨▒╨╛╤З╨╜╨╛ ╨╜╨░╨╢╨░╤В╨░ ╨║╨╜╨╛╨┐╨║╨░ ╨╕╨╖ ╨С╨г╨Ф╨г╨й╨Ш╨е ╤И╨░╨│╨╛╨▓, ╨║╨╛╤В╨╛╤А╨░╤П ╨╜╨╡ ╨▓ ╨╛╤В╨║╨░╤В╨╡ ╤Г ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨│╨╡╤А╨╛╤П тАФ
+   ╨┐╨╛╨┐╤Л╤В╨║╨░ ╤Б╨▒╤А╨░╤Б╤Л╨▓╨░╨╡╤В╤Б╤П: ╨┐╤А╨╛╨│╤А╨╡╤Б╤Б ╨╛╨▒╨╜╤Г╨╗╤П╨╡╤В╤Б╤П, ╤В╨░╨╣╨╝╨╡╤А ╨╕╨┤╤С╤В ╨╖╨░╨╜╨╛╨▓╨╛. */
+function failRun(tok, expected){
+  running = false; clearInterval(tint);
+  resetAttempt();
+  $('timer').classList.add('hidden');
+  renderSeq();
+  $('failText').textContent = `╨б╨▒╤А╨╛╤Б: ╨╜╨░╨╢╨░╤В╨╛ ┬л${label(tok)}┬╗ ╨▓╨╝╨╡╤Б╤В╨╛ ┬л${label(expected)}┬╗`;
+  $('failMsg').classList.remove('hidden');   // ╨▓╨╜╤Г╤В╤А╨╕ ╨║╨╜╨╛╨┐╨║╨░ ┬л╨Х╤Й╤С ╤А╨░╨╖ (Enter)┬╗
+}
+function press(tok){
+  if (!running) return;
+  const seq = VARIANTS[variant].seq;
+  const expected = seq[step];
+  if (tok === expected){
+    if (ABILITY[tok]) cooldown[hero].add(tok);   // ╤Б╨┐╨╛╤Б╨╛╨▒╨╜╨╛╤Б╤В╤М ╤Г╤И╨╗╨░ ╨▓ ╨╛╤В╨║╨░╤В ╤Г ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨│╨╡╤А╨╛╤П
+    if (tok === 'NEXT') hero ^= 1;               // ╨┐╨╛╤Б╨╗╨╡ TAB ╤Г╨┐╤А╨░╨▓╨╗╤П╨╡╨╝ ╨┤╤А╤Г╨│╨╕╨╝ ╨│╨╡╤А╨╛╨╡╨╝
+    step++;
+    if (step >= seq.length){ finish(); return; }
+    renderSeq();
+    return;
+  }
+  // ╨г╨╢╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╜╨░╤П ╤Б╨┐╨╛╤Б╨╛╨▒╨╜╨╛╤Б╤В╤М ╤Н╤В╨╛╨│╨╛ ╨│╨╡╤А╨╛╤П тАФ ╨▓ ╨╛╤В╨║╨░╤В╨╡, ╨╡╤С ╨┐╨╛╨▓╤В╨╛╤А╨╜╨╛╨╡ ╨╜╨░╨╢╨░╤В╨╕╨╡ ╨╜╨╡ ╨╛╤И╨╕╨▒╨║╨░
+  if (ABILITY[tok] && cooldown[hero].has(tok)) return;
+  // ╨Ъ╨╜╨╛╨┐╨║╨░ ╨╕╨╖ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╤Е ╤И╨░╨│╨╛╨▓, ╨╜╨╡ ╨▓ ╨╛╤В╨║╨░╤В╨╡ тАФ ╤Б╨▒╤А╨╛╤Б
+  if (seq.indexOf(tok, step + 1) !== -1){ failRun(tok, expected); return; }
+  // ╨б╨┐╨╛╤Б╨╛╨▒╨╜╨╛╤Б╤В╤М/╨┐╤А╨╡╨┤╨╝╨╡╤В, ╨║╨╛╤В╨╛╤А╤Л╤Е ╨╜╨╡╤В ╨▓ ╨║╨╛╨╝╨▒╨╛ ╤Н╤В╨╛╨│╨╛ ╨▓╨░╤А╨╕╨░╨╜╤В╨░ (╨╜╨░╨┐╤А╨╕╨╝╨╡╤А W ╨▓ ╨▓╨░╤А╨╕╨░╨╜╤В╨╡ 1) тАФ ╤В╨╛╨╢╨╡ ╤Б╨▒╤А╨╛╤Б
+  if (ABILITY[tok] && !seq.includes(tok)){ failRun(tok, expected); return; }
+  // ╨Ъ╨╜╨╛╨┐╨║╨░, ╨║╨╛╤В╨╛╤А╨╛╨╣ ╨▓ ╨║╨╛╨╝╨▒╨╕╨╜╨░╤Ж╨╕╨╕ ╨▓╨╛╨╛╨▒╤Й╨╡ ╨╜╨╡╤В (╨╕╨╗╨╕ ╨╛╨╜╨░ ╤Г╨╢╨╡ ╨╜╨╡ ╨┐╨╛╨╜╨░╨┤╨╛╨▒╨╕╤В╤Б╤П) тАФ ╨┐╤А╨╛╤Б╤В╨╛ ╨┐╨╛╨┤╤Б╨▓╨╡╤В╨║╨░
+  const c = $('chip-'+step);
+  c.classList.add('wrong');
+  setTimeout(()=> c.classList.remove('wrong'), 260);
+}
+function getRank(v,t){
+  const L = LIMITS[v];
+  for (let i=0;i<L.length;i++) if (t <= L[i]) return RANKS[i];
+  return 'Herald';
+}
+function medalSVG(color){
+  return `<svg viewBox="0 0 64 64">
+    <polygon points="20,0 28,0 32,15 24,19" fill="#7a1f2e"/>
+    <polygon points="44,0 36,0 32,15 40,19" fill="#5a1622"/>
+    <circle cx="32" cy="38" r="20" fill="${color}" stroke="#e8d8a0" stroke-width="2"/>
+    <circle cx="32" cy="38" r="14" fill="none" stroke="rgba(255,255,255,.35)"/>
+    <polygon points="32,30 34.4,35.2 40,35.6 35.8,39.4 37.2,45 32,41.8 26.8,45 28.2,39.4 24,35.6 29.6,35.2"
+             fill="rgba(255,255,255,.85)"/>
+  </svg>`;
+}
+function finish(){
+  running = false; clearInterval(tint);
+  const t = (performance.now()-t0)/1000;
+  const rank = getRank(variant, t);
+  $('timer').classList.add('hidden');
+  $('failMsg').classList.add('hidden');
+  const medal = $('medal'); medal.innerHTML = '';
+  medal.appendChild(rankImg(rank, 120));
+  $('rankName').textContent = rank;
+  $('rankName').style.color = COLORS[rank];
+  $('rankName').style.textShadow = `0 0 22px ${COLORS[rank]}66`;
+  $('rankRu').textContent = RANKS_RU[rank];
+  $('resTime').textContent = t.toFixed(2) + 's';
+  $('result').classList.remove('hidden');
+  renderSeq();
+  if (!records[variant] || t < records[variant].time){
+    records[variant] = { time:t, rank };
+    localStorage.setItem('aw_records', JSON.stringify(records));
+  }
+  ratingVariant = variant;
+  renderRecords();
+  renderRating();
+  finished = true;
+}
+
+/* ================= INPUT ================= */
+function eventToToken(e){ return nameToToken(normKey(e)); }
+function nameToToken(n){
+  if (n === binds.next)  return 'NEXT';
+  if (n === binds.manta) return 'MANTA';
+  if (n === binds.all)   return 'ALL';
+  if (n === binds.w)     return 'W';
+  if (n === 'Q' || n === 'E' || n === 'R') return n;
+  return null;   // ╨Я╨Ъ╨Ь тАФ ╤В╨╛╨╗╤М╨║╨╛ ╨┐╤А╨░╨▓╤Л╨╣ ╨║╨╗╨╕╨║ ╨╝╤Л╤И╨╕; ╨Я╤А╨╛╨▒╨╡╨╗ ╨╜╨╡ ╨╖╨░╤Б╤З╨╕╤В╤Л╨▓╨░╨╡╤В╤Б╤П
+}
+document.addEventListener('keydown', e=>{
+  // ╨╜╨░╨▒╨╛╤А ╨╜╨░╨╖╨▓╨░╨╜╨╕╤П ╤Б╨▓╨╛╨╡╨│╨╛ ╨┐╤А╨╛╨║╨░╤Б╤В╨░ ╨╜╨╡ ╨┤╨╛╨╗╨╢╨╡╨╜ ╨╖╨░╨┐╤Г╤Б╨║╨░╤В╤М ╨╕╨│╤А╤Г ╨╕╨╗╨╕ ╨╜╨░╨╢╨╕╨╝╨░╤В╤М ╤Б╨┐╨╛╤Б╨╛╨▒╨╜╨╛╤Б╤В╨╕
+  if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName) && !binding) return;
+  if (binding){
+    e.preventDefault();
+    if (e.key !== 'Escape'){
+      binds[binding] = normKey(e);
+      localStorage.setItem('aw_binds', JSON.stringify(binds));
     }
+    binding = null;
+    renderAll();
+    return;
+  }
+  if ((e.key === 'Tab' || e.code === 'Space') && running) e.preventDefault();   // ╨▒╨╡╨╖ ╤Б╨║╤А╨╛╨╗╨╗╨░ ╨╕ ┬л╨╜╨░╨╢╨░╤В╨╕╤П┬╗ ╨║╨╜╨╛╨┐╨║╨╕ ╨▓ ╤Д╨╛╨║╤Г╤Б╨╡
+  if (e.repeat) return;
+  if (!running){
+    if (e.key === 'Enter') start();
+    return;
+  }
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const tok = eventToToken(e);
+  if (tok){
+    press(tok);
+  }
+});
+document.addEventListener('keyup', e=>{
+  // ╨Я╤А╨╛╨▒╨╡╨╗ ╨╜╨░ ╨║╨╜╨╛╨┐╨║╨╡ ╨▓ ╤Д╨╛╨║╤Г╤Б╨╡ ╤Б╤А╨░╨▒╨░╤В╤Л╨▓╨░╨╡╤В ╨║╨░╨║ ╨║╨╗╨╕╨║ ╨┐╤А╨╕ ╨╛╤В╨┐╤Г╤Б╨║╨░╨╜╨╕╨╕ тАФ ╨│╨░╤Б╨╕╨╝ ╨▓╨╛ ╨▓╤А╨╡╨╝╤П ╨╕╨│╤А╤Л
+  if (e.code === 'Space' && running) e.preventDefault();
+});
+/* ╨Ф╨╛╨┐╨╛╨╗╨╜╨╕╤В╨╡╨╗╤М╨╜╤Л╨╡ ╨║╨╜╨╛╨┐╨║╨╕ ╨╝╤Л╤И╨╕: ╨║╨╛╨╗╤С╤Б╨╕╨║╨╛ (Mouse 3), ╨▒╨╛╨║╨╛╨▓╤Л╨╡ Mouse 4 / Mouse 5 тАФ ╨╝╨╛╨╢╨╜╨╛ ╨╜╨░╨╖╨╜╨░╤З╨░╤В╤М ╨╕ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╤М ╨▓ ╨╕╨│╤А╨╡ */
+const MOUSE_NAMES = { 1:'MOUSE3', 3:'MOUSE4', 4:'MOUSE5' };
+const mouseHandled = new Set();
+document.addEventListener('mousedown', e=>{
+  const n = MOUSE_NAMES[e.button];
+  if (!n) return;
+  if (binding){
+    e.preventDefault(); mouseHandled.add(e.button);
+    binds[binding] = n;
+    localStorage.setItem('aw_binds', JSON.stringify(binds));
+    binding = null;
+    renderAll();
+    return;
+  }
+  if (running){
+    e.preventDefault(); mouseHandled.add(e.button);   // ╨▒╨╡╨╖ ╨░╨▓╤В╨╛╤Б╨║╤А╨╛╨╗╨╗╨░ ╨╕ ╨┐╨╡╤А╨╡╤Е╨╛╨┤╨░ ┬л╨╜╨░╨╖╨░╨┤/╨▓╨┐╨╡╤А╤С╨┤┬╗
+    const tok = nameToToken(n);
+    if (tok) press(tok);
+  }
+});
+['mouseup','auxclick'].forEach(type => document.addEventListener(type, e=>{
+  if (!MOUSE_NAMES[e.button] || !mouseHandled.has(e.button)) return;
+  e.preventDefault();
+  if (type === 'mouseup'){ const b = e.button; setTimeout(()=> mouseHandled.delete(b), 50); }   // auxclick ╨┐╤А╨╕╤Е╨╛╨┤╨╕╤В ╤Б╤А╨░╨╖╤Г ╨┐╨╛╤Б╨╗╨╡ mouseup
+}));
+document.addEventListener('contextmenu', e=>{
+  if (running){ e.preventDefault(); press('RMB'); }
+});
+$('kbReset').onclick = ()=>{
+  binds = Object.assign({}, DEFAULT_BINDS);
+  localStorage.setItem('aw_binds', JSON.stringify(binds));
+  renderAll();
+};
+/* ================= ╨б╨Т╨Ю╨Щ ╨Я╨а╨Ю╨Ъ╨Р╨б╨в ================= */
+let draft = [];
+const PALETTE = ['Q','W','E','R','MANTA','ALL','NEXT','RMB'];
+function renderDraft(){
+  const box = $('pcDraft'); box.innerHTML = '';
+  if (!draft.length){
+    box.innerHTML = '<span class="hint">╨┐╨╛╨║╨░ ╨┐╤Г╤Б╤В╨╛</span>';
+    return;
+  }
+  draft.forEach(t=>{
+    const c = document.createElement('div'); c.className = 'chip'; c.textContent = label(t);
+    box.appendChild(c);
+  });
+}
+function renderPalette(){
+  const box = $('pcPalette'); box.innerHTML = '';
+  PALETTE.forEach(t=>{
+    const b = document.createElement('button'); b.className = 'ibtn'; b.title = NAMES[t];
+    const ic = makeIcon(t, 44);
+    ic.innerHTML += `<span class="badge">${label(t)}</span>`;
+    b.appendChild(ic);
+    b.onclick = ()=>{ if (draft.length < 30){ draft.push(t); $('pcErr').textContent = ''; renderDraft(); } };
+    box.appendChild(b);
+  });
+}
+function openForm(show){
+  $('pcForm').classList.toggle('hidden', !show);
+  $('pcAddBtn').textContent = show ? 'тИТ ╨Ю╤В╨╝╨╡╨╜╨░' : '+ ╨б╨▓╨╛╨╣ ╨┐╤А╨╛╨║╨░╤Б╤В';
+  if (show){ draft = []; $('pcName').value = ''; $('pcErr').textContent = ''; renderPalette(); renderDraft(); }
+}
+function saveCustom(){
+  if (draft.length < 2){ $('pcErr').textContent = '╨Ф╨╛╨▒╨░╨▓╤М╤В╨╡ ╨▓ ╨║╨╛╨╝╨▒╨╛ ╤Е╨╛╤В╤П ╨▒╤Л 2 ╨┤╨╡╨╣╤Б╤В╨▓╨╕╤П'; return; }
+  const n = custom.length + 1;
+  const name = $('pcName').value.trim() || ('╨б╨▓╨╛╨╣ ╨┐╤А╨╛╨║╨░╤Б╤В ' + n);
+  const c = { id:'c' + Date.now(), name, seq:draft.slice() };
+  custom.push(c); registerCustom(c);
+  localStorage.setItem('aw_custom', JSON.stringify(custom));
+  openForm(false);
+  selectVariant(c.id);
+  renderAll();
+}
+function deleteCustom(id){
+  if (!confirm('╨г╨┤╨░╨╗╨╕╤В╤М ╤Н╤В╨╛╤В ╨┐╤А╨╛╨║╨░╤Б╤В ╨╕ ╨╡╨│╨╛ ╤А╨╡╨║╨╛╤А╨┤?')) return;
+  if (running) stop();
+  custom = custom.filter(c => c.id !== id);
+  delete VARIANTS[id]; delete LIMITS[id]; delete records[id];
+  localStorage.setItem('aw_custom', JSON.stringify(custom));
+  localStorage.setItem('aw_records', JSON.stringify(records));
+  selectVariant(1);
+  renderAll();
+}
+$('pcAddBtn').onclick = ()=> openForm($('pcForm').classList.contains('hidden'));
+$('pcUndo').onclick = ()=>{ draft.pop(); renderDraft(); };
+$('pcClear').onclick = ()=>{ draft = []; renderDraft(); };
+$('pcSave').onclick = saveCustom;
+$('pcName').addEventListener('keydown', e=>{ if (e.key === 'Enter'){ e.preventDefault(); saveCustom(); } });
+$('startBtn').onclick = start;
+$('againBtn').onclick = start;
+$('failAgain').onclick = start;
 
-    function clearCompare() {
-      compareList = [];
-      localStorage.setItem('compareList', JSON.stringify(compareList));
-      updatePanel();
-      renderList();
-    }
-
-    function updatePanel() {
-      compareCount.textContent = compareList.length;
-      comparePanel.classList.toggle('show', compareList.length > 0);
-    }
-
-    function toggleView(view) {
-      document.getElementById('catalog-view').style.display = view === 'catalog' ? 'block' : 'none';
-      document.getElementById('compare-view').style.display = view === 'compare' ? 'block' : 'none';
-      comparePanel.style.display = view === 'catalog' ? (compareList.length ? 'flex' : 'none') : 'none';
-      window.scrollTo(0, 0);
-    }
-
-    function renderCompareTable() {
-      if (compareList.length < 2) return alert('Выберите минимум 2 устройства');
-      toggleView('compare');
-
-      const head = document.getElementById('compare-head');
-      const body = document.getElementById('compare-body');
-      head.innerHTML = `<tr><th>Характеристика</th>${compareList.map(id => {
-        const d = devices.find(x => x.id === id);
-        const query = encodeURIComponent(d.model);
-        return `<th>
-          <div style="font-weight:700;color:var(--text)">${d.model}</div>
-          <div style="font-size:13px;color:var(--text-muted)">${d.brand}</div>
-          <div class="price-cell" style="font-size:15px;margin-top:4px;margin-bottom:8px">${d.price.toLocaleString('ru-RU')} ₽</div>
-          <div class="buy-links" style="gap:4px;justify-content:center;">
-            <a href="https://www.dns-shop.ru/search/?q=${query}" target="_blank" rel="nofollow noopener" class="buy-btn dns">DNS</a>
-            <a href="https://www.citilink.ru/search/?text=${query}" target="_blank" rel="nofollow noopener" class="buy-btn citilink">Ситилинк</a>
-            <a href="https://market.yandex.ru/search?text=${query}" target="_blank" rel="nofollow noopener" class="buy-btn ymarket">Я.Маркет</a>
-            <a href="https://www.mvideo.ru/search?query=${query}" target="_blank" rel="nofollow noopener" class="buy-btn mvideo">М.Видео</a>
-          </div>
-        </th>`;
-      }).join('')}</tr>`;
-
-      const specs = [
-        { key: 'processor', label: 'Процессор', type: 'text' },
-        { key: 'ram', label: 'ОЗУ', type: 'num', higher: true },
-        { key: 'storage', label: 'Накопитель', type: 'num', higher: true },
-        { key: 'screen', label: 'Экран', type: 'num', higher: true },
-        { key: 'battery', label: 'Батарея', type: 'num', higher: true },
-        { key: 'rating', label: 'Рейтинг', type: 'num', higher: true, suffix: ' ★' },
-        { key: 'cameraMp', label: 'Камера (Мп)', type: 'num', higher: true, suffix: ' Мп' },
-        { key: 'camera', label: 'Камера (описание)', type: 'text', full: true },
-        { key: 'weight', label: 'Вес', type: 'num', full: true, lower: true },
-        { key: 'features', label: 'Особенности', type: 'text', full: true }
-      ];
-
-      body.innerHTML = specs.map(s => {
-        let rowHtml = `<tr class="spec-row ${s.full ? 'hidden-spec' : ''}"><td>${s.label}</td>`;
-        const values = compareList.map(id => devices.find(d => d.id === id)[s.key] ?? '-');
-        if (s.type === 'num') {
-          const nums = values.map(v => typeof v === 'number' ? v : 0);
-          const max = Math.max(...nums);
-          const min = Math.min(...nums);
-          values.forEach((v, i) => {
-            const isBest = (s.higher && v === max) || (s.lower && v === min);
-            rowHtml += `<td class="${isBest ? 'best-value' : ''}">${v}${s.suffix || ''}</td>`;
-          });
-        } else {
-          values.forEach(v => rowHtml += `<td>${Array.isArray(v) ? v.join(', ') : v}</td>`);
-        }
-        return rowHtml + '</tr>';
-      }).join('');
-
-      const prices = compareList.map(id => devices.find(d => d.id === id).price);
-      const minPrice = Math.min(...prices);
-      document.querySelectorAll('.price-cell').forEach((el, i) => {
-        if (prices[i] === minPrice) el.classList.add('best-value');
-      });
-    }
-
-    function toggleSpecsVisibility() {
-      const btn = document.getElementById('toggle-full-specs');
-      const rows = document.querySelectorAll('.hidden-spec');
-      const isHidden = rows[0]?.style.display !== 'table-row';
-      rows.forEach(r => r.style.display = isHidden ? 'table-row' : 'none');
-      btn.textContent = isHidden ? 'Скрыть дополнительные характеристики' : 'Показать все характеристики';
-    }
-
-    // Инициализация
-    init();
-  </script>
+renderAll();
+</script>
 </body>
 </html>
